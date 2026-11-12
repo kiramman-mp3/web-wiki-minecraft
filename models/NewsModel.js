@@ -1,3 +1,5 @@
+import { httpsUrl } from './safeUrl.js';
+
 // Reddit blocks cross-origin requests from the browser, so the JSON has to go
 // through a CORS proxy. `{url}` is replaced with the encoded Reddit URL.
 // NOTE: the anonymous corsproxy.io endpoint now answers 403 "keyless_legacy_url".
@@ -10,21 +12,12 @@ function proxied(targetUrl) {
   return REDDIT_PROXY.replace('{url}', encodeURIComponent(targetUrl));
 }
 
-function httpsOrEmpty(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' ? url.href : '';
-  } catch {
-    return '';
-  }
-}
-
 function pickImage(post) {
   const preview = post.preview?.images?.[0]?.source?.url;
   const oembed = post.media?.oembed?.thumbnail_url;
   const thumbnail = post.thumbnail;
   // Reddit escapes ampersands in preview URLs.
-  return httpsOrEmpty((preview || oembed || thumbnail || '').replace(/&amp;/g, '&'));
+  return httpsUrl((preview || oembed || thumbnail || '').replace(/&amp;/g, '&'));
 }
 
 function toArticle(post, subreddit) {
