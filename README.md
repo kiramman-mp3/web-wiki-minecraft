@@ -9,7 +9,7 @@
 
 **WikiCraft** es una enciclopedia web de Minecraft para jugadores que buscan información rápida sobre bloques, mobs, crafteos y pociones, con una estética fiel al juego. Es un sitio estático: HTML, CSS y JavaScript sin backend ni base de datos.
 
-Es un proyecto de aficionados del grupo de la FISEI y no está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
+Es un proyecto académico sin fines de lucro: WikiCraft no incluye publicidad propia, donaciones ni ninguna otra forma de monetización. No está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
 
 > [!TIP]
 > Para verlo funcionando visita la **[versión en vivo](https://kiramman-mp3.github.io/WikiCraft/)** o, en local, ejecuta `npm start` y abre `http://localhost:8080`.
@@ -233,7 +233,7 @@ Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde
 
 ## 📄 Licencia
 
-El código y el diseño de WikiCraft se distribuyen bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE). El nombre Minecraft y sus texturas o capturas pertenecen a Mojang AB y no están cubiertos por esa licencia.
+El código y el diseño de WikiCraft se distribuyen bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE). WikiCraft es un proyecto académico sin fines de lucro. El nombre Minecraft y sus texturas o capturas pertenecen a Mojang AB y no están cubiertos por esa licencia.
 
 ---
 
