@@ -12,8 +12,10 @@
   <title>WikiCraft | Inicio - La Guía Definitiva de Minecraft</title>
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="preload" href="css/minecraft_fot_esp.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="images/art/slide-cuevas.webp" as="image" fetchpriority="high">
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/home.css" rel="stylesheet">
 </head>
 
 <body class="minecraft-theme">
@@ -21,133 +23,388 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
     <div class="container">
-      <a class="navbar-brand minecraft-logo" href="index.html" aria-label="WikiCraft, ir al inicio"></a>
+      <a class="navbar-brand minecraft-logo" href="index.html" aria-label="WikiCraft, ir al inicio" aria-current="page"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="views/bloques.html">Bloques</a></li>
-          <li class="nav-item"><a class="nav-link" href="views/mobs.html">Mobs</a></li>
-          <li class="nav-item"><a class="nav-link" href="views/crafteos.html">Crafteos</a></li>
-          <li class="nav-item"><a class="nav-link" href="views/alquimia.html">Alquimia</a></li>
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bloques</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="views/bloques.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="views/bloques.html#overworld">Overworld</a></li>
+              <li><a class="dropdown-item" href="views/bloques.html#end">The End</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mobs</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="views/mobs.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="views/mobs.html#hostiles">Enemigos hostiles</a></li>
+              <li><a class="dropdown-item" href="views/mobs.html#neutrales">Criaturas neutrales</a></li>
+              <li><a class="dropdown-item" href="views/mobs.html#nether">Peligros del Nether</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Crafteos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="views/crafteos.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="views/crafteos.html#herramientas">Herramientas de recolección</a></li>
+              <li><a class="dropdown-item" href="views/crafteos.html#combate">Equipo de combate</a></li>
+              <li><a class="dropdown-item" href="views/crafteos.html#utilitarios">Bloques de utilidad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Alquimia</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="views/alquimia.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="views/alquimia.html#fundamentos">Fundamentos</a></li>
+              <li><a class="dropdown-item" href="views/alquimia.html#pociones">Efectos</a></li>
+              <li><a class="dropdown-item" href="views/alquimia.html#modificadores">Modificadores</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="views/comunidad.html">Comunidad</a></li>
-          <li class="nav-item"><a class="nav-link" href="views/jugar.html">Jugar</a></li>
         </ul>
+        <a class="btn-cta has-chevron" href="views/jugar.html">Jugar ahora</a>
       </div>
     </div>
   </nav>
 
+  <header class="hero-carousel">
+    <h1 class="visually-hidden">WikiCraft, la enciclopedia de Minecraft</h1>
+    <div id="heroCarousel" class="carousel slide" aria-roledescription="carousel" aria-label="Destacados de WikiCraft">
+      <div class="carousel-inner">
+        <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="1 de 3">
+          <img class="hero-slide__img" src="images/art/slide-cuevas.webp" alt="" width="1600" height="760" fetchpriority="high">
+          <div class="hero-slide__shade"></div>
+          <div class="hero-slide__inner">
+            <div class="container">
+              <div class="hero-slide__card">
+                <h2 class="hero-slide__title">¡Bienvenido a WikiCraft!</h2>
+                <p>Tu portal definitivo hacia el reino de los bloques. Domina el arte de la supervivencia, la construcción y el combate con nuestra guía experta.</p>
+                <a class="btn-minecraft has-chevron" href="#explorar">Explorar ahora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="2 de 3">
+          <img class="hero-slide__img" src="images/art/slide-paisaje.webp" alt="" width="1600" height="760" loading="lazy">
+          <div class="hero-slide__shade"></div>
+          <div class="hero-slide__inner">
+            <div class="container">
+              <div class="hero-slide__card">
+                <h2 class="hero-slide__title">Aventura instantánea</h2>
+                <p>¿Sin tiempo para instalaciones? Vive la experiencia del juego original directamente en tu navegador. Tu mundo, a un clic de distancia.</p>
+                <a class="btn-minecraft has-chevron" href="views/jugar.html">Jugar ahora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="3 de 3">
+          <img class="hero-slide__img" src="images/art/slide-jardin.webp" alt="" width="1600" height="760" loading="lazy">
+          <div class="hero-slide__shade"></div>
+          <div class="hero-slide__inner">
+            <div class="container">
+              <div class="hero-slide__card">
+                <h2 class="hero-slide__title">Voz de la comunidad</h2>
+                <p>Descubre los relatos y aventuras que dan vida al universo de Minecraft. Inspírate con las creaciones de otros jugadores.</p>
+                <a class="btn-minecraft has-chevron" href="views/comunidad.html">Ver comunidad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <header class="hero-section text-center text-white">
-    <div class="container py-5">
-      <div>
-        <h1 class="display-3 mb-3">¡Bienvenido a WikiCraft!</h1>
-        <p class="hero-lead">
-          Tu portal definitivo hacia el reino de los bloques. Domina el arte de la supervivencia, la construcción y el combate con nuestra guía experta.
-        </p>
+      <div class="carousel-indicators hero-thumbs">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1: Bienvenido a WikiCraft">
+          <img src="images/art/thumb-cuevas.webp" alt="" width="200" height="120">
+        </button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Diapositiva 2: Aventura instantánea">
+          <img src="images/art/thumb-paisaje.webp" alt="" width="200" height="120">
+        </button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Diapositiva 3: Voz de la comunidad">
+          <img src="images/art/thumb-jardin.webp" alt="" width="200" height="120">
+        </button>
       </div>
-      <div class="mt-5">
-        <a href="#contenidos" class="btn-minecraft btn-minecraft--lg">Explorar Ahora</a>
-      </div>
+      <button id="heroPause" class="hero-pause" type="button" aria-label="Pausar carrusel"></button>
     </div>
   </header>
 
   <main id="contenido">
+    <section id="explorar" class="home-section" aria-labelledby="explorar-titulo">
+      <div class="container">
+        <h2 id="explorar-titulo" class="section-title">Descubre la enciclopedia</h2>
+        <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+          <div class="col">
+            <article class="game-card">
+              <img class="game-card__art" src="images/art/card-bloques.webp" alt="" width="640" height="640" loading="lazy">
+              <h3 class="game-card__title"><a class="stretched-link" href="views/bloques.html">Bloques</a></h3>
+              <p class="game-card__text">Descubre los materiales esenciales para la construcción, desde bloques básicos hasta los más poderosos. Aprende a utilizarlos en tus proyectos y crea estructuras épicas.</p>
+              <ul class="game-card__tags">
+                <li class="mc-tag">Overworld</li>
+                <li class="mc-tag">The End</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col">
+            <article class="game-card">
+              <img class="game-card__art" src="images/art/card-mobs.webp" alt="" width="640" height="640" loading="lazy">
+              <h3 class="game-card__title"><a class="stretched-link" href="views/mobs.html">Mobs</a></h3>
+              <p class="game-card__text">Conoce las criaturas que habitan el mundo de Minecraft. Ya sea para enfrentarlas o para aprovechar sus recursos, cada mob tiene algo que ofrecerte.</p>
+              <ul class="game-card__tags">
+                <li class="mc-tag">Hostiles</li>
+                <li class="mc-tag">Neutrales</li>
+                <li class="mc-tag">Nether</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col">
+            <article class="game-card">
+              <img class="game-card__art" src="images/art/card-crafteos.webp" alt="" width="640" height="640" loading="lazy">
+              <h3 class="game-card__title"><a class="stretched-link" href="views/crafteos.html">Crafteos</a></h3>
+              <p class="game-card__text">Aprende las recetas para crear herramientas y armas esenciales. ¡El crafteo es clave para avanzar y sobrevivir en el mundo de Minecraft!</p>
+              <ul class="game-card__tags">
+                <li class="mc-tag">Recolección</li>
+                <li class="mc-tag">Combate</li>
+                <li class="mc-tag">Utilidad</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col">
+            <article class="game-card">
+              <img class="game-card__art" src="images/art/card-alquimia.webp" alt="" width="640" height="640" loading="lazy">
+              <h3 class="game-card__title"><a class="stretched-link" href="views/alquimia.html">Alquimia</a></h3>
+              <p class="game-card__text">Descubre las pociones mágicas y sus efectos. Aprende a crear pociones que te darán ventajas en combate o exploración.</p>
+              <ul class="game-card__tags">
+                <li class="mc-tag">Fundamentos</li>
+                <li class="mc-tag">Efectos</li>
+                <li class="mc-tag">Modificadores</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div id="contenidos" class="container mc-section reveal">
-    <div class="mc-panel">
-      <div class="row g-5 justify-content-center">
-        <!-- Bloques (Featured) -->
-        <div class="col-lg-8">
-          <div class="card shadow-sm card-featured">
-            <div class="card-body text-center">
-              <div>
-                <h2 class="card-title mb-3">Bloques</h2>
-                <p class="card-text">Descubre los materiales esenciales para la construcción, desde bloques básicos hasta los más poderosos. Aprende a utilizarlos en tus proyectos y crea estructuras épicas.</p>
-                <a href="views/bloques.html" class="btn-minecraft mt-3">Ver Bloques</a>
-              </div>
+    <section class="promo-band" aria-labelledby="empieza-titulo">
+      <span class="spark spark--1" aria-hidden="true"></span>
+      <span class="spark spark--2" aria-hidden="true"></span>
+      <span class="spark spark--3" aria-hidden="true"></span>
+      <span class="spark spark--4" aria-hidden="true"></span>
+      <span class="spark spark--5" aria-hidden="true"></span>
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 id="empieza-titulo" class="title-gold">Empieza por aquí</h2>
+            <p>Una mesa de trabajo es esencial. Combina 4 tablones de madera en tu inventario para crearla y desbloquea las recetas de herramientas, armas y armaduras.</p>
+            <a class="btn-minecraft btn-minecraft--gold btn-minecraft--lg has-chevron" href="views/crafteos.html">Ver crafteos</a>
+            <br>
+            <a class="link-gold has-chevron" href="views/crafteos.html#herramientas">Herramientas de recolección</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="glow-card">
+              <img src="images/crafteos/Mesadecrafteo.png" alt="Receta de la mesa de trabajo: cuatro tablones de madera en el inventario" width="361" height="172" loading="lazy">
+              <h3>Mesa de trabajo</h3>
+              <span class="mc-tag">Crafteos</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title">Mobs</h2>
-              <p class="card-text">Conoce las criaturas que habitan el mundo de Minecraft. Ya sea para enfrentarlas o para
-                aprovechar sus recursos, cada mob tiene algo que ofrecerte.</p>
-              <div class="mt-auto">
-                <a href="views/mobs.html" class="btn-minecraft w-100">Ver Mobs</a>
-              </div>
+    <section class="band" aria-labelledby="destacados-titulo">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-4">
+            <h2 id="destacados-titulo" class="title-gold">Bloques destacados</h2>
+            <p>Explora nuestra base de datos completa de materiales. Desde la piedra más común del Overworld hasta los misteriosos bloques del End.</p>
+            <a class="btn-minecraft btn-minecraft--gold has-chevron" href="views/bloques.html">Ver todos los bloques</a>
+          </div>
+          <div class="col-lg-8">
+            <div class="scroller" role="region" aria-label="Bloques destacados, desplázate horizontalmente" tabindex="0">
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--common"><img src="images/piedra.webp" alt="" width="360" height="360" loading="lazy"></div>
+                <h3 class="market-card__title">Piedra</h3>
+                <p class="market-card__sub">Base fundamental para herramientas y construcciones.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--common"><img src="images/madera.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Madera</h3>
+                <p class="market-card__sub">Esencial para iniciar tu supervivencia.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--common"><img src="images/tierra.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Tierra</h3>
+                <p class="market-card__sub">Presente en casi todos los climas del mundo.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--mineral"><img src="images/oro.webp" alt="" width="360" height="360" loading="lazy"></div>
+                <h3 class="market-card__title">Oro</h3>
+                <p class="market-card__sub">Lingotes forjados en bloques de gran valor.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--mineral"><img src="images/diamante.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Diamante</h3>
+                <p class="market-card__sub">El material más resistente y codiciado.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--mineral"><img src="images/redstone.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Redstone</h3>
+                <p class="market-card__sub">Energía pura para tus mecanismos.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--deco"><img src="images/cristal.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Cristal</h3>
+                <p class="market-card__sub">Transparencia ideal para tus bases modernas.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#overworld">
+                <div class="market-card__art market-card__art--deco"><img src="images/amatista.png" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Amatista</h3>
+                <p class="market-card__sub">Ecos mágicos y resonantes en bloques púrpuras.</p>
+                <span class="market-card__place">Overworld</span>
+              </a>
+              <a class="market-card" href="views/bloques.html#end">
+                <div class="market-card__art market-card__art--deco"><img src="images/cofre_ednd.webp" alt="" width="300" height="300" loading="lazy"></div>
+                <h3 class="market-card__title">Cofre del End</h3>
+                <p class="market-card__sub">Tu inventario vinculado a través de todas las dimensiones.</p>
+                <span class="market-card__place">The End</span>
+              </a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title">Crafteos</h2>
-              <p class="card-text">Aprende las recetas para crear herramientas y armas esenciales. ¡El crafteo es clave
-                para avanzar y sobrevivir en el mundo de Minecraft!</p>
-              <div class="mt-auto">
-                <a href="views/crafteos.html" class="btn-minecraft w-100">Ver Crafteos</a>
+    <section class="home-section" aria-labelledby="camino-titulo">
+      <div class="container">
+        <h2 id="camino-titulo" class="section-title">Elige tu camino</h2>
+        <div class="selector">
+          <div class="selector__list" role="tablist" aria-orientation="vertical" aria-label="Secciones de WikiCraft">
+            <button class="selector__tab active" id="tab-bloques" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#pane-bloques" aria-controls="pane-bloques" aria-selected="true">
+              <img src="images/diamante.webp" alt="" width="48" height="48">Bloques
+            </button>
+            <button class="selector__tab" id="tab-mobs" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#pane-mobs" aria-controls="pane-mobs" aria-selected="false" tabindex="-1">
+              <img src="images/mobs/creeper.png" alt="" width="20" height="48">Mobs
+            </button>
+            <button class="selector__tab" id="tab-crafteos" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#pane-crafteos" aria-controls="pane-crafteos" aria-selected="false" tabindex="-1">
+              <img src="images/madera.webp" alt="" width="48" height="48">Crafteos
+            </button>
+            <button class="selector__tab" id="tab-alquimia" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#pane-alquimia" aria-controls="pane-alquimia" aria-selected="false" tabindex="-1">
+              <img src="images/amatista.png" alt="" width="48" height="48">Alquimia
+            </button>
+            <button class="selector__tab" id="tab-jugar" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#pane-jugar" aria-controls="pane-jugar" aria-selected="false" tabindex="-1">
+              <img src="images/tierra.webp" alt="" width="48" height="48">Jugar
+            </button>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active selector__pane" id="pane-bloques" role="tabpanel" aria-labelledby="tab-bloques" tabindex="0">
+              <img class="selector__preview" src="images/art/banner-bloques.webp" alt="" width="1600" height="420" loading="lazy">
+              <div class="selector__footer">
+                <p>Materiales esenciales para la construcción, desde bloques básicos hasta los más poderosos del Overworld y del End.</p>
+                <a class="btn-minecraft has-chevron" href="views/bloques.html">Ir a Bloques</a>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title">Alquimia</h2>
-              <p class="card-text">Descubre las pociones mágicas y sus efectos. Aprende a crear pociones que te darán
-                ventajas en combate o exploración.</p>
-              <div class="mt-auto">
-                <a href="views/alquimia.html" class="btn-minecraft w-100">Ver Pociones</a>
+            <div class="tab-pane fade selector__pane" id="pane-mobs" role="tabpanel" aria-labelledby="tab-mobs" tabindex="0">
+              <img class="selector__preview" src="images/art/banner-mobs.webp" alt="" width="1600" height="420" loading="lazy">
+              <div class="selector__footer">
+                <p>Conoce a los enemigos hostiles, las criaturas neutrales y los peligros del Nether. Aprende a distinguirlos y a sobrevivir a sus encuentros.</p>
+                <a class="btn-minecraft has-chevron" href="views/mobs.html">Ir a Mobs</a>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h2 class="card-title">Comunidad</h2>
-              <p class="card-text">Conoce las historias y aventuras creadas por otros jugadores. ¡Explora mundos y
-                relatos inspiradores de la comunidad!</p>
-              <div class="mt-auto">
-                <a href="views/comunidad.html" class="btn-minecraft w-100">Ver Historias</a>
+            <div class="tab-pane fade selector__pane" id="pane-crafteos" role="tabpanel" aria-labelledby="tab-crafteos" tabindex="0">
+              <img class="selector__preview" src="images/art/banner-crafteos.webp" alt="" width="1600" height="420" loading="lazy">
+              <div class="selector__footer">
+                <p>Domina los secretos de la fabricación: herramientas de recolección, equipo de combate y bloques de utilidad.</p>
+                <a class="btn-minecraft has-chevron" href="views/crafteos.html">Ir a Crafteos</a>
+              </div>
+            </div>
+            <div class="tab-pane fade selector__pane" id="pane-alquimia" role="tabpanel" aria-labelledby="tab-alquimia" tabindex="0">
+              <img class="selector__preview" src="images/art/banner-alquimia.webp" alt="" width="1600" height="420" loading="lazy">
+              <div class="selector__footer">
+                <p>El arte de la destilación: instrumentos, ingredientes, efectos y modificadores para dominar cualquier situación.</p>
+                <a class="btn-minecraft has-chevron" href="views/alquimia.html">Ir a Alquimia</a>
+              </div>
+            </div>
+            <div class="tab-pane fade selector__pane" id="pane-jugar" role="tabpanel" aria-labelledby="tab-jugar" tabindex="0">
+              <img class="selector__preview" src="images/art/banner-jugar.webp" alt="" width="1600" height="420" loading="lazy">
+              <div class="selector__footer">
+                <p>Vive la experiencia del juego original directamente en tu navegador, sin instalaciones.</p>
+                <a class="btn-minecraft has-chevron" href="views/jugar.html">Ir a Jugar</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <section class="mc-section reveal" aria-labelledby="noticias-titulo">
-    <div class="container">
-      <div class="mc-panel text-center">
-        <div class="mb-5">
-          <h2 id="noticias-titulo" class="text-center">Noticias de la Comunidad</h2>
-          <p class="text-center">Conoce las noticias de la comunidad de Minecraft en Reddit</p>
-        </div>
-        <div id="minecraft-news" class="row g-4 justify-content-center" aria-live="polite" aria-busy="true">
+    <section class="home-section" aria-labelledby="noticias-titulo">
+      <div class="container">
+        <h2 id="noticias-titulo" class="section-title">Noticias más recientes</h2>
+        <p class="news-head"><a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">Ver todas las novedades en Reddit ↗</a></p>
+        <div id="minecraft-news" class="row g-4" aria-live="polite" aria-busy="true">
           <noscript>
             <div class="col-12"><p class="text-center">Activa JavaScript para ver las noticias o visita <a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft</a>.</p></div>
           </noscript>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
-  <footer>
-    <div class="container text-center">
-      <small>© 2025 Grupo más lindo de la FISEI.</small>
+  <footer class="site-footer">
+    <div class="site-footer__edge" aria-hidden="true"></div>
+    <div class="site-footer__main">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-4">
+            <a class="site-footer__brand" href="index.html" aria-label="WikiCraft, ir al inicio"></a>
+            <p class="small">La enciclopedia de Minecraft hecha por la comunidad: bloques, mobs, crafteos y alquimia.</p>
+            <div class="site-footer__scene" aria-hidden="true">
+              <img src="images/mobs/creeper.png" alt="" width="34" height="84" loading="lazy">
+              <img src="images/mobs/enderman.png" alt="" width="46" height="84" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h2 class="site-footer__heading">Explorar</h2>
+            <ul class="site-footer__links">
+              <li><a href="views/bloques.html">Bloques</a></li>
+              <li><a href="views/mobs.html">Mobs</a></li>
+              <li><a href="views/crafteos.html">Crafteos</a></li>
+              <li><a href="views/alquimia.html">Alquimia</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="site-footer__heading">Comunidad</h2>
+            <ul class="site-footer__links">
+              <li><a href="views/comunidad.html">Historias de la comunidad</a></li>
+              <li><a href="views/jugar.html">Jugar en el navegador</a></li>
+              <li><a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft ↗</a></li>
+              <li><a href="https://www.reddit.com/r/minecraftespanol/" target="_blank" rel="noopener noreferrer">r/minecraftespanol ↗</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h2 class="site-footer__heading">Proyecto</h2>
+            <ul class="site-footer__links">
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft" target="_blank" rel="noopener noreferrer">Repositorio en GitHub ↗</a></li>
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Cómo contribuir ↗</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>© 2025 Grupo más lindo de la FISEI.</p>
+        <p>WikiCraft es un proyecto de aficionados y no está afiliado a Mojang Studios ni a Microsoft. Minecraft es una marca de Mojang AB.</p>
+      </div>
     </div>
   </footer>
 
