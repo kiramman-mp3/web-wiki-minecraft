@@ -4,6 +4,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20modules-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
 [![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-yellow?style=flat-square)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://kiramman-mp3.github.io/WikiCraft/)
 
 **WikiCraft** es una enciclopedia web de Minecraft para jugadores que buscan información rápida sobre bloques, mobs, crafteos y pociones, con una estética fiel al juego. Es un sitio estático: HTML, CSS y JavaScript sin backend ni base de datos.
@@ -111,6 +112,7 @@ tests/                # Pruebas con node:test
 scripts/              # check-site.mjs (verificador estático) y generate-art.py (regenera images/art/)
 AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
 CONTRIBUTING.md       # Guía para contribuir
+LICENSE               # Licencia MIT
 ```
 
 ---
@@ -226,6 +228,12 @@ Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde
 - [minecraftforfreex.com](https://minecraftforfreex.com): juego incrustado en la página Jugar.
 
 </details>
+
+---
+
+## 📄 Licencia
+
+El código y el diseño de WikiCraft se distribuyen bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE). El nombre Minecraft y sus texturas o capturas pertenecen a Mojang AB y no están cubiertos por esa licencia.
 
 ---
 
