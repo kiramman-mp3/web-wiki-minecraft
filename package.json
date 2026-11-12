@@ -1,4 +1,13 @@
 {
+  "name": "wikicraft",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "test": "node --test tests/",
+    "check": "node scripts/check-site.mjs",
+    "verify": "npm run check && npm test"
+  },
   "dependencies": {
     "bootstrap": "^5.3.5"
   }

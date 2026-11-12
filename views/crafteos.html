@@ -4,55 +4,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://corsproxy.io; frame-src https://minecraftforfreex.com; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="description" content="Guía de crafteos de Minecraft. Aprende las recetas para herramientas, armaduras y bloques utilitarios.">
+  <meta name="theme-color" content="#1c1c1f">
   <title>WikiCraft | Crafteos - Recetas y Construcción</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <link rel="preload" href="../css/minecraft_fot_esp.ttf" as="font" type="font/ttf" crossorigin>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/styles.css" rel="stylesheet">
 </head>
 
 <body class="minecraft-theme">
-  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
     <div class="container">
-      <a class="minecraft-logo" href="../index.html"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand minecraft-logo" href="../index.html" aria-label="WikiCraft, ir al inicio"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="../views/bloques.html">Bloques</a></li>
-          <li class="nav-item"><a class="nav-link" href="../views/mobs.html">Mobs</a></li>
-          <li class="nav-item"><a class="nav-link active" href="../views/crafteos.html">Crafteos</a></li>
-          <li class="nav-item"><a class="nav-link" href="../views/alquimia.html">Alquimia</a></li>
-          <li class="nav-item"><a class="nav-link" href="../views/comunidad.html">Comunidad</a></li>
-          <li class="nav-item"><a class="nav-link" href="../views/jugar.html">Jugar</a></li>
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bloques</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="bloques.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="bloques.html#overworld">Overworld</a></li>
+              <li><a class="dropdown-item" href="bloques.html#end">The End</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mobs</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="mobs.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="mobs.html#hostiles">Enemigos hostiles</a></li>
+              <li><a class="dropdown-item" href="mobs.html#neutrales">Criaturas neutrales</a></li>
+              <li><a class="dropdown-item" href="mobs.html#nether">Peligros del Nether</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle active" type="button" data-bs-toggle="dropdown" aria-expanded="false">Crafteos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="crafteos.html" aria-current="page">Vista general</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#herramientas">Herramientas de recolección</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#combate">Equipo de combate</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#utilitarios">Bloques de utilidad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Alquimia</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="alquimia.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#fundamentos">Fundamentos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#pociones">Efectos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#modificadores">Modificadores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="comunidad.html">Comunidad</a></li>
         </ul>
+        <a class="btn-cta has-chevron" href="jugar.html">Jugar ahora</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section text-center text-white active">
+  <header class="hero-section hero-section--compact hero--crafteos text-center text-white">
     <div class="container py-5">
-      <div class="floating">
+      <div>
         <h1 class="display-3 mb-3">Recetario</h1>
-        <p class="lead mx-auto" style="max-width: 800px;">
+        <p class="hero-lead">
           Domina los secretos de la fabricación. Desde herramientas básicas hasta equipamiento de combate avanzado y bloques utilitarios.
         </p>
       </div>
 
       <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
-        <a href="#herramientas" class="btn btn-minecraft">Recolección</a>
-        <a href="#combate" class="btn btn-minecraft">Combate</a>
-        <a href="#utilitarios" class="btn btn-minecraft">Utilidad</a>
+        <a href="#herramientas" class="btn-minecraft btn-minecraft--stone">Recolección</a>
+        <a href="#combate" class="btn-minecraft btn-minecraft--stone">Combate</a>
+        <a href="#utilitarios" class="btn-minecraft btn-minecraft--stone">Utilidad</a>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main id="contenido">
 
   <div class="container mb-5">
     <!-- Intro & Tip -->
-    <div class="glass-panel">
+    <div class="mc-panel">
       <div class="row align-items-center">
         <div class="col-md-7">
           <h2 class="text-white">Domina el Crafteo</h2>
@@ -62,12 +100,12 @@
           </p>
         </div>
         <div class="col-md-5">
-          <div class="p-4 bg-dark bg-opacity-50 border-start border-success border-4">
-            <h4 class="text-success mb-2">Tip de Supervivencia</h4>
+          <div class="mc-tip mc-tip--lg border-start border-success border-4">
+            <h3 class="text-success mb-2">Tip de Supervivencia</h3>
             <p class="small text-white mb-3">
               Una mesa de trabajo es esencial. Combina 4 tablones de madera en tu inventario para crearla.
             </p>
-            <img src="../images/crafteos/Mesadecrafteo.png" class="img-fluid rounded shadow-sm" alt="Mesa de crafteo">
+            <img loading="lazy" decoding="async" src="../images/crafteos/Mesadecrafteo.png" class="img-fluid rounded shadow-sm" alt="Mesa de crafteo">
           </div>
         </div>
       </div>
@@ -75,9 +113,9 @@
   </div>
 
     <!-- Herramientas de Recolección -->
-    <section id="herramientas" class="container">
-      <div class="glass-panel">
-        <h2 class="text-center mb-5 text-white">Herramientas de Recolección</h2>
+    <section id="herramientas" class="container mc-section">
+      <div class="mc-panel">
+        <h2 class="section-title">Herramientas de Recolección</h2>
         
         <!-- Picos -->
         <div class="row align-items-center mb-5">
@@ -91,7 +129,7 @@
             </ul>
           </div>
           <div class="col-md-6 text-center">
-            <img src="../images/crafteos/picos.jpg" class="img-fluid rounded shadow w-75" alt="Crafteos de picos">
+            <img loading="lazy" decoding="async" src="../images/crafteos/picos.jpg" class="img-fluid rounded shadow w-75" alt="Crafteos de picos">
           </div>
         </div>
 
@@ -105,7 +143,7 @@
             <ul class="list-unstyled text-white">
               <li>● 3 Materiales + 2 palos</li>
             </ul>
-            <img src="../images/crafteos/hachas.jpg" class="img-fluid rounded shadow mt-3 w-100" alt="Crafteos de hachas">
+            <img loading="lazy" decoding="async" src="../images/crafteos/hachas.jpg" class="img-fluid rounded shadow mt-3 w-100" alt="Crafteos de hachas">
           </div>
           <div class="col-md-6">
             <h3 class="text-success">Palas</h3>
@@ -113,18 +151,16 @@
             <ul class="list-unstyled text-white">
               <li>● 1 Material + 2 palos</li>
             </ul>
-            <img src="../images/crafteos/palas.jpg" class="img-fluid rounded shadow mt-3 w-100" alt="Crafteos de palas">
+            <img loading="lazy" decoding="async" src="../images/crafteos/palas.jpg" class="img-fluid rounded shadow mt-3 w-100" alt="Crafteos de palas">
           </div>
         </div>
       </div>
     </section>
 
-              <br>
-
     <!-- Equipo de Combate -->
-    <section id="combate" class="container">
-      <div class="glass-panel">
-        <h2 class="text-center mb-5 text-white">Equipo de Combate</h2>
+    <section id="combate" class="container mc-section">
+      <div class="mc-panel">
+        <h2 class="section-title">Equipo de Combate</h2>
         
         <div class="row g-4">
           <!-- Espadas -->
@@ -135,7 +171,7 @@
               <li class="mb-2">● <strong>Espada:</strong> 2 materiales + 1 palo</li>
               <li class="mb-2">● <strong>Arco:</strong> 3 palos + 3 cuerdas</li>
             </ul>
-            <img src="../images/crafteos/espadas.png" class="img-fluid rounded shadow" alt="Crafteos de espadas">
+            <img loading="lazy" decoding="async" src="../images/crafteos/espadas.png" class="img-fluid rounded shadow" alt="Crafteos de espadas">
           </div>
 
           <!-- Armaduras -->
@@ -148,16 +184,16 @@
               <div class="col-6">● Pantalones: 7 u.</div>
               <div class="col-6">● Botas: 4 u.</div>
             </div>
-            <img src="../images/crafteos/armaduras.png" class="img-fluid rounded shadow mt-3" alt="Crafteos de armaduras">
+            <img loading="lazy" decoding="async" src="../images/crafteos/armaduras.png" class="img-fluid rounded shadow mt-3" alt="Crafteos de armaduras">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Bloques Utilitarios -->
-    <section id="utilitarios" class="container">
-      <div class="glass-panel">
-        <h2 class="text-center mb-5 text-white">Bloques de Utilidad</h2>
+    <section id="utilitarios" class="container mc-section">
+      <div class="mc-panel">
+        <h2 class="section-title">Bloques de Utilidad</h2>
         <div class="row align-items-center">
           <div class="col-md-6">
             <p class="text-white">
@@ -173,19 +209,63 @@
             </div>
           </div>
           <div class="col-md-6 text-center">
-            <img src="../images/crafteos/crafteosutilitarios.jpeg" alt="Bloques utilitarios" class="img-fluid rounded shadow w-100">
+            <img loading="lazy" decoding="async" src="../images/crafteos/crafteosutilitarios.jpeg" alt="Bloques utilitarios" class="img-fluid rounded shadow w-100">
           </div>
         </div>
       </div>
     </section>
+  </main>
 
-  <footer class="py-4 text-center">
-    <div class="container">
-      <small>© 2025 Grupo más lindo de la FISEI.</small>
+  <footer class="site-footer">
+    <div class="site-footer__edge" aria-hidden="true"></div>
+    <div class="site-footer__main">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-4">
+            <a class="site-footer__brand" href="../index.html" aria-label="WikiCraft, ir al inicio"></a>
+            <p class="small">La enciclopedia de Minecraft hecha por la comunidad: bloques, mobs, crafteos y alquimia.</p>
+            <div class="site-footer__scene" aria-hidden="true">
+              <img src="../images/mobs/creeper.png" alt="" width="34" height="84" loading="lazy">
+              <img src="../images/mobs/enderman.png" alt="" width="46" height="84" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h2 class="site-footer__heading">Explorar</h2>
+            <ul class="site-footer__links">
+              <li><a href="bloques.html">Bloques</a></li>
+              <li><a href="mobs.html">Mobs</a></li>
+              <li><a href="crafteos.html">Crafteos</a></li>
+              <li><a href="alquimia.html">Alquimia</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="site-footer__heading">Comunidad</h2>
+            <ul class="site-footer__links">
+              <li><a href="comunidad.html">Historias de la comunidad</a></li>
+              <li><a href="jugar.html">Jugar en el navegador</a></li>
+              <li><a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft ↗</a></li>
+              <li><a href="https://www.reddit.com/r/minecraftespanol/" target="_blank" rel="noopener noreferrer">r/minecraftespanol ↗</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h2 class="site-footer__heading">Proyecto</h2>
+            <ul class="site-footer__links">
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft" target="_blank" rel="noopener noreferrer">Repositorio en GitHub ↗</a></li>
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Cómo contribuir ↗</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>© 2025 Grupo más lindo de la FISEI.</p>
+        <p>WikiCraft es un proyecto de aficionados y no está afiliado a Mojang Studios ni a Microsoft. Minecraft es una marca de Mojang AB.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="../main.js"></script>
 </body>
 

@@ -2,69 +2,106 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Conoce a todos los mobs de Minecraft. Desde los amigables aldeanos hasta los peligrosos Creepers y el Ender Dragon.">
-    <title>WikiCraft | Mobs - Criaturas de Minecraft</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
-    <link href="../css/styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://corsproxy.io; frame-src https://minecraftforfreex.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="Conoce a todos los mobs de Minecraft. Desde los amigables aldeanos hasta los peligrosos Creepers y el Ender Dragon.">
+  <meta name="theme-color" content="#1c1c1f">
+  <title>WikiCraft | Mobs - Criaturas de Minecraft</title>
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <link rel="preload" href="../css/minecraft_fot_esp.ttf" as="font" type="font/ttf" crossorigin>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
 </head>
 
 <body class="minecraft-theme">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
-        <div class="container">
-            <a class="minecraft-logo" href="../index.html"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../views/bloques.html">Bloques</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="../views/mobs.html">Mobs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../views/crafteos.html">Crafteos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../views/alquimia.html">Alquimia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../views/comunidad.html">Comunidad</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../views/jugar.html">Jugar</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand minecraft-logo" href="../index.html" aria-label="WikiCraft, ir al inicio"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bloques</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="bloques.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="bloques.html#overworld">Overworld</a></li>
+              <li><a class="dropdown-item" href="bloques.html#end">The End</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle active" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mobs</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="mobs.html" aria-current="page">Vista general</a></li>
+              <li><a class="dropdown-item" href="mobs.html#hostiles">Enemigos hostiles</a></li>
+              <li><a class="dropdown-item" href="mobs.html#neutrales">Criaturas neutrales</a></li>
+              <li><a class="dropdown-item" href="mobs.html#nether">Peligros del Nether</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Crafteos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="crafteos.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#herramientas">Herramientas de recolección</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#combate">Equipo de combate</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#utilitarios">Bloques de utilidad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Alquimia</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="alquimia.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#fundamentos">Fundamentos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#pociones">Efectos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#modificadores">Modificadores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="comunidad.html">Comunidad</a></li>
+        </ul>
+        <a class="btn-cta has-chevron" href="jugar.html">Jugar ahora</a>
+      </div>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center text-white active">
+    <header class="hero-section hero-section--compact hero--mobs text-center text-white">
         <div class="container py-5">
-            <div class="floating">
+            <div>
                 <h1 class="display-3 mb-3">Bestiario</h1>
-                <p class="lead mx-auto" style="max-width: 800px;">
+                <p class="hero-lead">
                     Tu guía esencial para conocer a los habitantes de este mundo. Aprende a distinguirlos, dominarlos o simplemente sobrevivir a sus encuentros.
                 </p>
             </div>
             
             <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#hostiles" class="btn btn-minecraft">Enemigos Hostiles</a>
-                <a href="#neutrales" class="btn btn-minecraft">Neutrales</a>
-                <a href="#nether" class="btn btn-minecraft">Peligros del Nether</a>
+                <a href="#hostiles" class="btn-minecraft btn-minecraft--stone">Enemigos Hostiles</a>
+                <a href="#neutrales" class="btn-minecraft btn-minecraft--stone">Neutrales</a>
+                <a href="#nether" class="btn-minecraft btn-minecraft--stone">Peligros del Nether</a>
             </div>
         </div>
-    </section>
+    </header>
+
+  <main id="contenido">
 
     <!-- Enemigos Hostiles -->
-    <section id="hostiles" class="container">
-        <div class="glass-panel">
-            <h2 class="text-center mb-5 text-white">Enemigos Hostiles</h2>
-            <div class="row g-4 mb-5">
+    <section id="hostiles" class="container mc-section">
+        <div class="mc-panel">
+            <h2 class="section-title">Enemigos Hostiles</h2>
+            <div class="row g-4 justify-content-center mb-5">
                 <!-- Creeper -->
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">Creeper</h5>
-                            <img src="../images/mobs/creeper.png" alt="Creeper" class="card-icon">
+                            <h3 class="card-title text-danger">Creeper</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/creeper.png" alt="Creeper" class="card-icon">
                             <p class="card-text">Explosivo y sigiloso. Su sonido característico es la última advertencia.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-danger border-4">
+                            <div class="mc-tip mt-3 border-start border-danger border-4">
                                 <small class="text-white"><strong>TIP:</strong> Escucharás un siseo metálico segundos antes de la explosión. ¡Corre!</small>
                             </div>
                         </div>
@@ -74,10 +111,10 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">Zombie</h5>
-                            <img src="../images/mobs/zombie.png" alt="Zombie" class="card-icon">
+                            <h3 class="card-title text-danger">Zombie</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/zombie.png" alt="Zombie" class="card-icon">
                             <p class="card-text">Criaturas nocturnas que atacan en grupo al detectar humanos.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-danger border-4">
+                            <div class="mc-tip mt-3 border-start border-danger border-4">
                                 <small class="text-white"><strong>TIP:</strong> Los zombies son lentos. Mantén el movimiento y atácalos a distancia.</small>
                             </div>
                         </div>
@@ -87,10 +124,10 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">Esqueleto</h5>
-                            <img src="../images/mobs/esqueleto.png" alt="Esqueleto" class="card-icon">
+                            <h3 class="card-title text-danger">Esqueleto</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/esqueleto.png" alt="Esqueleto" class="card-icon">
                             <p class="card-text">Arqueros precisos y rápidos que no dudarán en dispararte desde lejos.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-danger border-4">
+                            <div class="mc-tip mt-3 border-start border-danger border-4">
                                 <small class="text-white"><strong>TIP:</strong> Usa un escudo para desviar sus flechas y cerrar la distancia.</small>
                             </div>
                         </div>
@@ -98,15 +135,15 @@
                 </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 <!-- Spider -->
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">Spider</h5>
-                            <img src="../images/mobs/spider.png" alt="Spider" class="card-icon">
+                            <h3 class="card-title text-danger">Spider</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/spider.png" alt="Spider" class="card-icon">
                             <p class="card-text">Rápida y capaz de escalar cualquier superficie vertical.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-danger border-4">
+                            <div class="mc-tip mt-3 border-start border-danger border-4">
                                 <small class="text-white"><strong>TIP:</strong> Son dóciles durante el día, pero extremadamente agresivas en la oscuridad.</small>
                             </div>
                         </div>
@@ -116,10 +153,10 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-danger">Witch</h5>
-                            <img src="../images/mobs/witch.png" alt="Witch" class="card-icon">
+                            <h3 class="card-title text-danger">Witch</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/witch.png" alt="Witch" class="card-icon">
                             <p class="card-text">Maestra de la alquimia negativa que te lanzará efectos dañinos.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-danger border-4">
+                            <div class="mc-tip mt-3 border-start border-danger border-4">
                                 <small class="text-white"><strong>TIP:</strong> Lanza flechas desde lejos; enfrentarlas de cerca es un suicidio.</small>
                             </div>
                         </div>
@@ -130,18 +167,18 @@
     </section>
 
     <!-- Criaturas Neutrales -->
-    <section id="neutrales" class="container">
-        <div class="glass-panel">
-            <h2 class="text-center mb-5 text-white">Criaturas Neutrales</h2>
-            <div class="row g-4">
+    <section id="neutrales" class="container mc-section">
+        <div class="mc-panel">
+            <h2 class="section-title">Criaturas Neutrales</h2>
+            <div class="row g-4 justify-content-center">
                 <!-- Enderman -->
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-info">Enderman</h5>
-                            <img src="../images/mobs/enderman.png" alt="Enderman" class="card-icon">
+                            <h3 class="card-title text-info">Enderman</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/enderman.png" alt="Enderman" class="card-icon">
                             <p class="card-text">Teletransportadores solitarios que odian ser observados.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-info border-4">
+                            <div class="mc-tip mt-3 border-start border-info border-4">
                                 <small class="text-white"><strong>TIP:</strong> Nunca los mires directamente a los ojos. El agua es su única debilidad.</small>
                             </div>
                         </div>
@@ -151,10 +188,10 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-info">Pigman</h5>
-                            <img src="../images/mobs/zombie_pigman.png" alt="Pigman" class="card-icon">
+                            <h3 class="card-title text-info">Pigman</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/zombie_pigman.png" alt="Pigman" class="card-icon">
                             <p class="card-text">Habitantes del Nether que atacan solo si son provocados.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-info border-4">
+                            <div class="mc-tip mt-3 border-start border-info border-4">
                                 <small class="text-white"><strong>TIP:</strong> ¡Ten cuidado! Si golpeas a uno, toda la horda vendrá por ti.</small>
                             </div>
                         </div>
@@ -165,18 +202,18 @@
     </section>
 
     <!-- Peligros del Nether -->
-    <section id="nether" class="container">
-        <div class="glass-panel">
-            <h2 class="text-center mb-5 text-white">Peligros del Nether</h2>
-            <div class="row g-4">
+    <section id="nether" class="container mc-section">
+        <div class="mc-panel">
+            <h2 class="section-title">Peligros del Nether</h2>
+            <div class="row g-4 justify-content-center">
                 <!-- Blaze -->
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">Blaze</h5>
-                            <img src="../images/mobs/blaze.png" alt="Blaze" class="card-icon">
+                            <h3 class="card-title text-warning">Blaze</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/blaze.png" alt="Blaze" class="card-icon">
                             <p class="card-text">Entidades de fuego que custodian las fortalezas del Nether.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-warning border-4">
+                            <div class="mc-tip mt-3 border-start border-warning border-4">
                                 <small class="text-white"><strong>TIP:</strong> Las bolas de nieve les infligen un daño masivo. ¡Tenlas a mano!</small>
                             </div>
                         </div>
@@ -186,10 +223,10 @@
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">Ghast</h5>
-                            <img src="../images/mobs/ghast.png" alt="Ghast" class="card-icon">
+                            <h3 class="card-title text-warning">Ghast</h3>
+                            <img loading="lazy" decoding="async" src="../images/mobs/ghast.png" alt="Ghast" class="card-icon">
                             <p class="card-text">Gigantes flotantes cuyos gritos anuncian una bola de fuego inminente.</p>
-                            <div class="p-3 bg-dark bg-opacity-50 mt-3 border-start border-warning border-4">
+                            <div class="mc-tip mt-3 border-start border-warning border-4">
                                 <small class="text-white"><strong>TIP:</strong> Puedes "batear" su bola de fuego devolviéndola con un golpe de espada.</small>
                             </div>
                         </div>
@@ -198,16 +235,59 @@
             </div>
         </div>
     </section>
+  </main>
 
-    <footer class="py-4 text-center">
-        <div class="container">
-            <small>© 2025 Grupo más lindo de la FISEI.</small>
+  <footer class="site-footer">
+    <div class="site-footer__edge" aria-hidden="true"></div>
+    <div class="site-footer__main">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-4">
+            <a class="site-footer__brand" href="../index.html" aria-label="WikiCraft, ir al inicio"></a>
+            <p class="small">La enciclopedia de Minecraft hecha por la comunidad: bloques, mobs, crafteos y alquimia.</p>
+            <div class="site-footer__scene" aria-hidden="true">
+              <img src="../images/mobs/creeper.png" alt="" width="34" height="84" loading="lazy">
+              <img src="../images/mobs/enderman.png" alt="" width="46" height="84" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h2 class="site-footer__heading">Explorar</h2>
+            <ul class="site-footer__links">
+              <li><a href="bloques.html">Bloques</a></li>
+              <li><a href="mobs.html">Mobs</a></li>
+              <li><a href="crafteos.html">Crafteos</a></li>
+              <li><a href="alquimia.html">Alquimia</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="site-footer__heading">Comunidad</h2>
+            <ul class="site-footer__links">
+              <li><a href="comunidad.html">Historias de la comunidad</a></li>
+              <li><a href="jugar.html">Jugar en el navegador</a></li>
+              <li><a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft ↗</a></li>
+              <li><a href="https://www.reddit.com/r/minecraftespanol/" target="_blank" rel="noopener noreferrer">r/minecraftespanol ↗</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h2 class="site-footer__heading">Proyecto</h2>
+            <ul class="site-footer__links">
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft" target="_blank" rel="noopener noreferrer">Repositorio en GitHub ↗</a></li>
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Cómo contribuir ↗</a></li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>© 2025 Grupo más lindo de la FISEI.</p>
+        <p>WikiCraft es un proyecto de aficionados y no está afiliado a Mojang Studios ni a Microsoft. Minecraft es una marca de Mojang AB.</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../main.js"></script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../main.js"></script>
 </body>
 
 </html>
