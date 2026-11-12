@@ -9,35 +9,30 @@ function element(tag, className, text) {
   return node;
 }
 
-function createCard(article, { badge, linkLabel }) {
-  const col = element('div', 'col-md-6 col-lg-4');
-  const card = element('article', 'news-card h-100');
+function createCard(article, { badge }) {
+  const col = element('div', 'col-12 col-sm-6 col-lg-3');
 
-  const img = element('img', 'news-card-img');
+  const link = element('a', 'news-tile');
+  link.href = httpsUrl(article.url, '#');
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+
+  const img = element('img', 'news-tile__img');
   img.src = httpsUrl(article.urlToImage, DEFAULT_IMAGE);
   img.alt = '';
   img.loading = 'lazy';
   img.decoding = 'async';
   img.addEventListener('error', () => { img.src = DEFAULT_IMAGE; }, { once: true });
 
-  const body = element('div', 'news-card-body');
-  const meta = element('div', 'news-card-meta');
-  if (badge) meta.appendChild(element('span', 'mc-badge', badge));
+  const meta = element('div', 'news-tile__meta');
+  if (badge) meta.appendChild(element('span', 'news-tile__chip', badge));
   if (article.date) meta.appendChild(element('time', '', article.date));
 
-  const link = element('a', 'btn-minecraft mt-auto text-center', linkLabel);
-  link.href = httpsUrl(article.url, '#');
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
+  const shade = element('div', 'news-tile__shade');
+  shade.append(meta, element('h3', 'news-tile__title', article.title));
 
-  body.append(
-    meta,
-    element('h3', 'news-card-title', article.title),
-    element('p', 'news-card-text', article.description),
-    link
-  );
-  card.append(img, body);
-  col.appendChild(card);
+  link.append(img, shade);
+  col.appendChild(link);
   return col;
 }
 
@@ -45,9 +40,9 @@ export function renderNews(articles, containerId, options = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const { limit = 9, badge = '', linkLabel = 'Leer más' } = options;
+  const { limit = 8, badge = '' } = options;
   container.replaceChildren(
-    ...articles.slice(0, limit).map(article => createCard(article, { badge, linkLabel }))
+    ...articles.slice(0, limit).map(article => createCard(article, { badge }))
   );
   container.removeAttribute('aria-busy');
 }
