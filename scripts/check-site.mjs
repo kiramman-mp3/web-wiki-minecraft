@@ -30,6 +30,14 @@ for (const page of pages) {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
   ids.filter((id, i) => ids.indexOf(id) !== i).forEach(id => fail(page, `duplicate id "${id}"`));
 
+  // Links to another page may carry an anchor: it must exist in that page.
+  for (const [, ref, anchor] of html.matchAll(/href="([^":#]+\.html)#([^"]+)"/g)) {
+    const target = resolve(dirname(file), ref);
+    if (!existsSync(target)) continue; // already reported above
+    const targetIds = [...readFileSync(target, 'utf8').matchAll(/id="([^"]+)"/g)].map(m => m[1]);
+    if (!targetIds.includes(anchor)) fail(page, `"${ref}#${anchor}" points to a missing id`);
+  }
+
   // Anchors must point to an existing id on the same page.
   for (const [, anchor] of html.matchAll(/\bhref="#([^"]+)"/g)) {
     if (!ids.includes(anchor)) fail(page, `anchor "#${anchor}" has no matching id`);
@@ -46,7 +54,7 @@ for (const page of pages) {
 
   // Every page must expose the same navigation targets.
   const nav = html.match(/<nav\b[\s\S]*?<\/nav>/)?.[0] ?? '';
-  const targets = [...nav.matchAll(/class="nav-link[^"]*" href="([^"]+)"/g)]
+  const targets = [...nav.matchAll(/\bhref="([^"]+)"/g)]
     .map(m => resolve(dirname(file), m[1]).replace(root, ''));
   navTargets.set(page, targets.join('|'));
 }

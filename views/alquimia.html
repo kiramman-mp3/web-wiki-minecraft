@@ -25,21 +25,51 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="bloques.html">Bloques</a></li>
-          <li class="nav-item"><a class="nav-link" href="mobs.html">Mobs</a></li>
-          <li class="nav-item"><a class="nav-link" href="crafteos.html">Crafteos</a></li>
-          <li class="nav-item"><a class="nav-link active" href="alquimia.html" aria-current="page">Alquimia</a></li>
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bloques</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="bloques.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="bloques.html#overworld">Overworld</a></li>
+              <li><a class="dropdown-item" href="bloques.html#end">The End</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Mobs</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="mobs.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="mobs.html#hostiles">Enemigos hostiles</a></li>
+              <li><a class="dropdown-item" href="mobs.html#neutrales">Criaturas neutrales</a></li>
+              <li><a class="dropdown-item" href="mobs.html#nether">Peligros del Nether</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Crafteos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="crafteos.html">Vista general</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#herramientas">Herramientas de recolección</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#combate">Equipo de combate</a></li>
+              <li><a class="dropdown-item" href="crafteos.html#utilitarios">Bloques de utilidad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle active" type="button" data-bs-toggle="dropdown" aria-expanded="false">Alquimia</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="alquimia.html" aria-current="page">Vista general</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#fundamentos">Fundamentos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#pociones">Efectos</a></li>
+              <li><a class="dropdown-item" href="alquimia.html#modificadores">Modificadores</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="comunidad.html">Comunidad</a></li>
-          <li class="nav-item"><a class="nav-link" href="jugar.html">Jugar</a></li>
         </ul>
+        <a class="btn-cta has-chevron" href="jugar.html">Jugar ahora</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-section hero-section--compact text-center text-white">
+  <header class="hero-section hero-section--compact hero--alquimia text-center text-white">
     <div class="container py-5">
       <div>
         <h1 class="display-3 mb-3">Laboratorio</h1>
@@ -98,7 +128,7 @@
   <!-- Ingredientes Base -->
   <section class="container mc-section">
     <div class="mc-panel">
-      <h2 class="text-center mb-4 text-white">Ingredientes de Destilación</h2>
+      <h2 class="section-title">Ingredientes de Destilación</h2>
       <div class="row align-items-center">
         <div class="col-md-6">
           <p class="text-white">
@@ -114,7 +144,7 @@
   <!-- Efectos de Pociones -->
   <section id="pociones" class="container mc-section">
     <div class="mc-panel">
-      <h2 class="text-center mb-5 text-white">Efectos Maestros</h2>
+      <h2 class="section-title">Efectos Maestros</h2>
       <div class="table-responsive">
         <table class="table table-dark table-hover mb-0">
           <thead>
@@ -173,7 +203,7 @@
   <!-- Modificadores -->
   <section id="modificadores" class="container mc-section">
     <div class="mc-panel">
-      <h2 class="text-center mb-5 text-white">Domina los Modificadores</h2>
+      <h2 class="section-title">Domina los Modificadores</h2>
       <div class="table-responsive">
         <table class="table table-dark table-hover">
           <thead>
@@ -227,9 +257,52 @@
   </section>
   </main>
 
-  <footer>
-    <div class="container text-center">
-      <small>© 2025 Grupo más lindo de la FISEI.</small>
+  <footer class="site-footer">
+    <div class="site-footer__edge" aria-hidden="true"></div>
+    <div class="site-footer__main">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-4">
+            <a class="site-footer__brand" href="../index.html" aria-label="WikiCraft, ir al inicio"></a>
+            <p class="small">La enciclopedia de Minecraft hecha por la comunidad: bloques, mobs, crafteos y alquimia.</p>
+            <div class="site-footer__scene" aria-hidden="true">
+              <img src="../images/mobs/creeper.png" alt="" width="34" height="84" loading="lazy">
+              <img src="../images/mobs/enderman.png" alt="" width="46" height="84" loading="lazy">
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h2 class="site-footer__heading">Explorar</h2>
+            <ul class="site-footer__links">
+              <li><a href="bloques.html">Bloques</a></li>
+              <li><a href="mobs.html">Mobs</a></li>
+              <li><a href="crafteos.html">Crafteos</a></li>
+              <li><a href="alquimia.html">Alquimia</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h2 class="site-footer__heading">Comunidad</h2>
+            <ul class="site-footer__links">
+              <li><a href="comunidad.html">Historias de la comunidad</a></li>
+              <li><a href="jugar.html">Jugar en el navegador</a></li>
+              <li><a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft ↗</a></li>
+              <li><a href="https://www.reddit.com/r/minecraftespanol/" target="_blank" rel="noopener noreferrer">r/minecraftespanol ↗</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h2 class="site-footer__heading">Proyecto</h2>
+            <ul class="site-footer__links">
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft" target="_blank" rel="noopener noreferrer">Repositorio en GitHub ↗</a></li>
+              <li><a href="https://github.com/kiramman-mp3/WikiCraft/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Cómo contribuir ↗</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <div class="container">
+        <p>© 2025 Grupo más lindo de la FISEI.</p>
+        <p>WikiCraft es un proyecto de aficionados y no está afiliado a Mojang Studios ni a Microsoft. Minecraft es una marca de Mojang AB.</p>
+      </div>
     </div>
   </footer>
 
