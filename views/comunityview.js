@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     containerId: 'community-stories',
     subreddits: ['minecraftespanol', 'minecraft'],
     limit: 12,
-    badge: 'Comunidad',
-    linkLabel: 'Ver en Reddit'
+    badge: 'Comunidad'
   });
 });
