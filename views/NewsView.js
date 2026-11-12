@@ -1,6 +1,6 @@
 import { httpsUrl } from '../models/safeUrl.js';
 
-const DEFAULT_IMAGE = new URL('../images/default-new.jpg', import.meta.url).href;
+const DEFAULT_IMAGE = new URL('../images/news-placeholder.webp', import.meta.url).href;
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
