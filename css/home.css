@@ -1,0 +1,538 @@
+/* ==========================================================================
+   WikiCraft — home page sections
+   1. Hero carousel   2. Section cards   3. Promo band   4. Scroller band
+   5. Section selector   6. News   7. Responsive
+   ========================================================================== */
+
+/* 1. Hero carousel ---------------------------------------------------------- */
+.hero-carousel {
+  position: relative;
+  background: #000;
+}
+
+.hero-carousel .carousel-item {
+  position: relative;
+  height: clamp(440px, 74vh, 720px);
+}
+
+.hero-slide__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slide__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.05) 65%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent 45%);
+}
+
+.hero-slide__inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3.5rem;
+}
+
+.hero-slide__card {
+  max-width: 30rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(20, 20, 22, 0.9);
+  border: var(--pixel) solid #111113;
+  box-shadow: inset 4px 4px 0 var(--mc-stone-700), 8px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.hero-slide__title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem);
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hero-slide__card p {
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+/* Thumbnails double as carousel indicators (Bootstrap needs .carousel-indicators). */
+.carousel-indicators.hero-thumbs {
+  position: absolute;
+  right: 0;
+  bottom: 3.5rem;
+  left: auto;
+  z-index: 3;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin: 0 max(1rem, calc((100% - 1320px) / 2 + 12px)) 0 0;
+}
+
+.carousel-indicators.hero-thumbs [data-bs-target] {
+  box-sizing: border-box;
+  width: 104px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  background: #000;
+  border: 3px solid #111113;
+  opacity: 0.7;
+  transition: opacity 0.15s steps(3);
+}
+
+.carousel-indicators.hero-thumbs [data-bs-target]:hover,
+.carousel-indicators.hero-thumbs .active {
+  border-color: #fff;
+  opacity: 1;
+}
+
+.hero-thumbs img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-pause {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(20, 20, 22, 0.85);
+  border: var(--pixel) solid #111113;
+  box-shadow: inset 3px 3px 0 var(--mc-stone-700);
+}
+
+.hero-pause::before,
+.hero-pause::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  width: 5px;
+  height: 14px;
+  background: #fff;
+}
+
+.hero-pause::before {
+  left: 12px;
+}
+
+.hero-pause::after {
+  right: 12px;
+}
+
+.hero-pause.is-paused::before {
+  left: 14px;
+  width: 0;
+  height: 0;
+  background: none;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #fff;
+}
+
+.hero-pause.is-paused::after {
+  display: none;
+}
+
+/* Grass line under the carousel, same as the inner-page heroes. */
+.hero-carousel::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 48px;
+  pointer-events: none;
+  background: url('../images/textures/grass-side.png') 0 0 / 48px 48px repeat-x;
+  image-rendering: pixelated;
+}
+
+/* 2. Section cards ---------------------------------------------------------- */
+.home-section {
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.game-card__art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--mc-stone-900);
+  border: var(--pixel) solid #111113;
+  transition: transform 0.15s steps(3);
+}
+
+.game-card:hover .game-card__art {
+  transform: translateY(-4px);
+}
+
+.game-card__title {
+  margin: 1.25rem 0 0.4rem;
+  font-size: 1.45rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000;
+  text-transform: none;
+}
+
+.game-card__title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.game-card__title a:hover {
+  color: var(--mc-green-text);
+}
+
+.game-card__text {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.game-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.85rem 0 0;
+  margin: auto 0 0;
+  list-style: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 3. Promo band ------------------------------------------------------------- */
+.promo-band {
+  position: relative;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 75% 50%, #3a2b05 0%, #17140a 60%, #0e0d08 100%);
+  border-block: var(--pixel) solid #000;
+}
+
+.title-gold {
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.2rem, 1rem + 5vw, 4.2rem);
+  line-height: 1.05;
+  color: var(--mc-gold);
+  text-shadow: none;
+  background: linear-gradient(180deg, #fff4a8 0 45%, var(--mc-gold) 45%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(4px 4px 0 #000);
+}
+
+.promo-band p {
+  max-width: 32rem;
+  color: var(--text-primary);
+}
+
+.link-gold {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-weight: 700;
+  color: var(--mc-gold);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.link-gold:hover {
+  color: var(--mc-gold-hi);
+  text-decoration: underline;
+}
+
+.glow-card {
+  position: relative;
+  max-width: 340px;
+  padding: 1rem;
+  margin-inline: auto;
+  background: var(--mc-stone-700);
+  border: var(--pixel) solid #111113;
+  box-shadow:
+    0 0 70px 14px rgba(255, 199, 44, 0.4),
+    inset 4px 4px 0 var(--mc-stone-600),
+    inset -4px -4px 0 #26262a;
+}
+
+.glow-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  background: var(--mc-stone-400);
+  border: var(--pixel) solid #111113;
+}
+
+.glow-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  text-transform: none;
+}
+
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--mc-gold);
+  animation: spark 3.2s steps(6) infinite;
+}
+
+.spark--1 { top: 18%; left: 46%; animation-delay: 0s; }
+.spark--2 { top: 70%; left: 52%; width: 8px; height: 8px; animation-delay: 0.8s; }
+.spark--3 { top: 12%; right: 8%; animation-delay: 1.6s; }
+.spark--4 { top: 82%; right: 12%; width: 12px; height: 12px; animation-delay: 2.2s; }
+.spark--5 { top: 40%; left: 40%; width: 6px; height: 6px; animation-delay: 1.2s; }
+
+@keyframes spark {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(0, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(8px, -8px);
+  }
+}
+
+/* 4. Scroller band ---------------------------------------------------------- */
+.band {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Narrow column: keep the long word "destacados" on one line. */
+.band .title-gold {
+  font-size: clamp(1.6rem, 0.4rem + 2.2vw, 2.3rem);
+  overflow-wrap: normal;
+}
+
+.scroller {
+  display: flex;
+  gap: 1rem;
+  padding: 0 0 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.market-card {
+  display: flex;
+  flex: 0 0 240px;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+  background: #3c3a3a;
+  border: var(--pixel) solid #111113;
+  scroll-snap-align: start;
+  transition: transform 0.15s steps(3);
+}
+
+.market-card:hover {
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.market-card__art {
+  display: grid;
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  background: linear-gradient(180deg, var(--art-top, #5c5c61), var(--art-bottom, #26262a));
+  border: 2px solid #111113;
+}
+
+.market-card__art--common { --art-top: #6e8f3a; --art-bottom: #2a3d14; }
+.market-card__art--mineral { --art-top: #3c8fb0; --art-bottom: #12303f; }
+.market-card__art--deco { --art-top: #8a5ab0; --art-bottom: #2a163d; }
+
+.market-card__art img {
+  width: 62%;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, 0.4));
+}
+
+.market-card__title {
+  margin: 0.25rem 0 0;
+  font-size: 1.15rem;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.market-card__sub {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.market-card__place {
+  margin-top: auto;
+  align-self: flex-end;
+  font-family: var(--font-pixel);
+  font-size: 0.95rem;
+  color: var(--mc-gold);
+}
+
+/* 5. Section selector ------------------------------------------------------- */
+.selector {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 2.3fr;
+  background: #3c3a3a;
+  border: var(--pixel) solid #111113;
+}
+
+.selector__list {
+  display: flex;
+  flex-direction: column;
+  background: #262423;
+}
+
+.selector__tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  text-align: left;
+  background: #2f2d2d;
+  border: 0;
+  border-bottom: var(--pixel) solid #111113;
+}
+
+.selector__tab:hover {
+  color: #fff;
+  background: #3a3838;
+}
+
+.selector__tab.active {
+  color: #fff;
+  background: #3c3a3a;
+}
+
+.selector__tab img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #111113;
+  border: 2px solid transparent;
+}
+
+.selector__tab.active img {
+  border-color: #fff;
+}
+
+.selector__pane {
+  padding: 1.5rem;
+}
+
+.selector__preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  margin-bottom: 1.25rem;
+  object-fit: cover;
+  border: var(--pixel) solid #111113;
+}
+
+.selector__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selector__footer p {
+  flex: 1 1 18rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* 6. News ------------------------------------------------------------------- */
+.news-head {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.news-head a {
+  font-weight: 600;
+}
+
+/* 7. Responsive ------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .selector {
+    grid-template-columns: 1fr;
+  }
+
+  .selector__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selector__tab {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .carousel-indicators.hero-thumbs [data-bs-target] {
+    width: 72px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-slide__inner {
+    padding-bottom: 6.5rem;
+  }
+
+  .hero-slide__card {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .carousel-indicators.hero-thumbs {
+    right: auto;
+    bottom: 3.5rem;
+    left: 0;
+    justify-content: flex-start;
+    margin: 0 1rem;
+  }
+
+  .carousel-indicators.hero-thumbs [data-bs-target] {
+    width: 64px;
+    height: 38px;
+  }
+
+  .spark {
+    display: none;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .selector__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spark {
+    animation: none;
+    opacity: 0.6;
+  }
+}
