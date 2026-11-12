@@ -155,7 +155,7 @@ XSS eliminado (DOM con `textContent`, solo URLs `https:`, `rel="noopener norefer
 
 ## 16. Recomendaciones futuras
 
-Añadir ESLint/Prettier, un E2E con Playwright, Lighthouse en CI, comprimir o retirar las imágenes grandes, plantillas para no repetir el `<nav>` en 7 archivos, un `LICENSE` (el README enlaza MIT sin archivo), y `og:` / `sitemap.xml` para SEO.
+Añadir ESLint/Prettier, un E2E con Playwright, Lighthouse en CI, comprimir o retirar las imágenes grandes, plantillas para no repetir el `<nav>` en 7 archivos, y `og:` / `sitemap.xml` para SEO.
 
 ## 17. Preparación para producción
 
