@@ -49,8 +49,9 @@ Integración en tiempo real con lo mejor de la comunidad de Minecraft en Reddit.
 
 WikiCraft está construido con lo último en estándares web para ofrecer una experiencia fluida y visualmente "pixel-perfect":
 
-- **Core**: HTML5, JavaScript (ES6+).
-- **Estilo**: CSS3 (con un tema oscuro personalizado de Minecraft) y Bootstrap 5.
+- **Core**: HTML5, JavaScript (ES modules).
+- **Estilo**: CSS3 con un sistema de diseño Minecraft propio (`css/styles.css`) y Bootstrap 5.3.5 servido localmente desde `assets/dist/`.
+- **Pruebas**: `node:test` (Node 20 o superior) sin dependencias adicionales.
 - **Flujo de Trabajo**: GitFlow para un desarrollo profesional y organizado.
 
 ---
@@ -68,7 +69,42 @@ Si prefieres correr WikiCraft en tu propio "servidor" local:
    cd WikiCraft
    ```
 3. **¡A jugar!**
-   Simplemente abre el archivo `index.html` en tu navegador favorito.
+   Inicia un servidor estático (los módulos ES no funcionan abriendo `index.html` con `file://`):
+   ```bash
+   npm start
+   ```
+   y abre `http://localhost:8080`. Requiere Python 3; cualquier otro servidor estático sirve igual.
+
+---
+
+## 🧪 Scripts y Pruebas
+
+| Comando | Qué hace |
+| :--- | :--- |
+| `npm start` | Sirve el sitio en `http://localhost:8080` |
+| `npm test` | Pruebas del modelo de noticias (`tests/`) |
+| `npm run check` | Verifica enlaces locales, `alt`, ids, CSP, navegación y estructura de las 7 páginas |
+| `npm run verify` | Ejecuta `check` y `test` |
+
+---
+
+## 🗂️ Estructura del Proyecto
+
+```bash
+index.html            # Inicio
+views/                # Páginas (bloques, mobs, crafteos, alquimia, comunidad, jugar) y vistas JS
+controllers/          # NewsController (carga y estados) y UIController (botón de subir)
+models/               # NewsModel (Reddit) y safeUrl (validador de URLs https)
+css/styles.css        # Sistema de diseño Minecraft
+assets/dist/          # Bootstrap local
+images/textures/      # Texturas pixeladas de 16x16 usadas por el CSS
+tests/                # Pruebas con node:test
+scripts/              # Verificador estático del sitio
+AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
+```
+
+> [!NOTE]
+> Las noticias y la comunidad dependen de un proxy CORS configurado en `REDDIT_PROXY` (`models/NewsModel.js`). Si el proxy no responde, la interfaz muestra un error con botón de reintento.
 
 ---
 
