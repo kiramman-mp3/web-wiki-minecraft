@@ -4,11 +4,12 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20modules-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
 [![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-yellow?style=flat-square)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://kiramman-mp3.github.io/WikiCraft/)
 
 **WikiCraft** es una enciclopedia web de Minecraft para jugadores que buscan información rápida sobre bloques, mobs, crafteos y pociones, con una estética fiel al juego. Es un sitio estático: HTML, CSS y JavaScript sin backend ni base de datos.
 
-Es un proyecto de aficionados del grupo de la FISEI y no está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
+Es un proyecto académico sin fines de lucro: WikiCraft no incluye publicidad propia, donaciones ni ninguna otra forma de monetización. No está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
 
 > [!TIP]
 > Para verlo funcionando visita la **[versión en vivo](https://kiramman-mp3.github.io/WikiCraft/)** o, en local, ejecuta `npm start` y abre `http://localhost:8080`.
@@ -38,14 +39,11 @@ Para jugadores de Minecraft que quieren consultar datos rápidos, y para el grup
 
 | Inicio | Bloques | Mobs |
 | :---: | :---: | :---: |
-| <img src="images/Pag_Prin.png" width="420"><br><sub>Portada</sub> | <img src="images/bloque1.png" width="420"><br><sub>Bloques del Overworld</sub> | <img src="images/mobs1.png" width="420"><br><sub>Mobs</sub> |
+| <img src="docs/capturas/inicio.png" width="420"><br><sub>Portada con carrusel</sub> | <img src="docs/capturas/bloques.png" width="420"><br><sub>Bloques</sub> | <img src="docs/capturas/mobs.png" width="420"><br><sub>Bestiario</sub> |
 
 | Crafteos | Alquimia | Comunidad |
 | :---: | :---: | :---: |
-| <img src="images/craft1.png" width="420"><br><sub>Crafteos</sub> | <img src="images/Poc1.png" width="420"><br><sub>Pociones</sub> | <img src="images/hist1.png" width="420"><br><sub>Historias de la comunidad</sub> |
-
-> [!NOTE]
-> Las capturas son anteriores al rediseño de la portada y están pendientes de regenerar.
+| <img src="docs/capturas/crafteos.png" width="420"><br><sub>Crafteos</sub> | <img src="docs/capturas/alquimia.png" width="420"><br><sub>Alquimia</sub> | <img src="docs/capturas/comunidad.png" width="420"><br><sub>Voz de la comunidad</sub> |
 
 ---
 
@@ -109,10 +107,12 @@ css/home.css          # Estilos exclusivos de la portada
 assets/dist/          # Bootstrap local
 images/textures/      # Texturas pixeladas de 16x16 usadas por el CSS
 images/art/           # Ilustraciones generadas (tarjetas, banners, diapositivas)
+docs/capturas/        # Capturas de pantalla usadas en este README
 tests/                # Pruebas con node:test
 scripts/              # check-site.mjs (verificador estático) y generate-art.py (regenera images/art/)
 AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
 CONTRIBUTING.md       # Guía para contribuir
+LICENSE               # Licencia MIT
 ```
 
 ---
@@ -205,34 +205,16 @@ El detalle de problemas, mejoras y pendientes está en `AUDITORIA_Y_MEJORAS.md`.
 
 ---
 
-## 🗺️ Roadmap de Funcionalidades
-
-- [x] Siete páginas con navegación común y menús desplegables.
-- [x] Sistema de diseño Minecraft y rediseño de la portada.
-- [x] Carrusel accesible con pausa.
-- [x] Noticias con estados de carga, error y vacío.
-- [x] Content Security Policy y validación de URLs.
-- [x] Pruebas del modelo y verificador estático de las páginas.
-- [ ] Proxy propio para las noticias de Reddit.
-- [ ] Linter y pruebas end to end.
-- [ ] Retirar o comprimir imágenes sin uso.
-- [ ] Regenerar las capturas del README.
-- [ ] Añadir un archivo `LICENSE`.
-
----
-
 ## 👥 Contribuidores
 
-Número de commits según `git shortlog -sn`:
+Número de commits según `git shortlog -sn`. Los commits de `kiramman-mp3`, `Kiramman-mp3` y `Johan Kiramman` se suman porque son la misma persona, y `IngePablito` y `Aleduss07` figuran con su nombre real.
 
 | Contribuidor | Commits |
 | :--- | :---: |
-| kiramman-mp3 | 68 |
-| IngePablito | 24 |
-| Johan Kiramman | 22 |
-| Aleduss07 | 13 |
+| kiramman-mp3 | 102 |
+| Pablo Vayas | 24 |
+| Alexis López | 13 |
 | José Manzano | 10 |
-| Kiramman-mp3 | 7 |
 | Alan Cuenca | 5 |
 
 Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde `develop` y abre un Pull Request.
@@ -246,6 +228,12 @@ Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde
 - [minecraftforfreex.com](https://minecraftforfreex.com): juego incrustado en la página Jugar.
 
 </details>
+
+---
+
+## 📄 Licencia
+
+El código y el diseño de WikiCraft se distribuyen bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE). WikiCraft es un proyecto académico sin fines de lucro. El nombre Minecraft y sus texturas o capturas pertenecen a Mojang AB y no están cubiertos por esa licencia.
 
 ---
 
