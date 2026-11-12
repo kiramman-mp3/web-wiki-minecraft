@@ -38,14 +38,11 @@ Para jugadores de Minecraft que quieren consultar datos rápidos, y para el grup
 
 | Inicio | Bloques | Mobs |
 | :---: | :---: | :---: |
-| <img src="images/Pag_Prin.png" width="420"><br><sub>Portada</sub> | <img src="images/bloque1.png" width="420"><br><sub>Bloques del Overworld</sub> | <img src="images/mobs1.png" width="420"><br><sub>Mobs</sub> |
+| <img src="docs/capturas/inicio.png" width="420"><br><sub>Portada con carrusel</sub> | <img src="docs/capturas/bloques.png" width="420"><br><sub>Bloques</sub> | <img src="docs/capturas/mobs.png" width="420"><br><sub>Bestiario</sub> |
 
 | Crafteos | Alquimia | Comunidad |
 | :---: | :---: | :---: |
-| <img src="images/craft1.png" width="420"><br><sub>Crafteos</sub> | <img src="images/Poc1.png" width="420"><br><sub>Pociones</sub> | <img src="images/hist1.png" width="420"><br><sub>Historias de la comunidad</sub> |
-
-> [!NOTE]
-> Las capturas son anteriores al rediseño de la portada y están pendientes de regenerar.
+| <img src="docs/capturas/crafteos.png" width="420"><br><sub>Crafteos</sub> | <img src="docs/capturas/alquimia.png" width="420"><br><sub>Alquimia</sub> | <img src="docs/capturas/comunidad.png" width="420"><br><sub>Voz de la comunidad</sub> |
 
 ---
 
@@ -109,6 +106,7 @@ css/home.css          # Estilos exclusivos de la portada
 assets/dist/          # Bootstrap local
 images/textures/      # Texturas pixeladas de 16x16 usadas por el CSS
 images/art/           # Ilustraciones generadas (tarjetas, banners, diapositivas)
+docs/capturas/        # Capturas de pantalla usadas en este README
 tests/                # Pruebas con node:test
 scripts/              # check-site.mjs (verificador estático) y generate-art.py (regenera images/art/)
 AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
@@ -216,7 +214,7 @@ El detalle de problemas, mejoras y pendientes está en `AUDITORIA_Y_MEJORAS.md`.
 - [ ] Proxy propio para las noticias de Reddit.
 - [ ] Linter y pruebas end to end.
 - [ ] Retirar o comprimir imágenes sin uso.
-- [ ] Regenerar las capturas del README.
+- [x] Capturas del README regeneradas tras el rediseño.
 - [ ] Añadir un archivo `LICENSE`.
 
 ---
