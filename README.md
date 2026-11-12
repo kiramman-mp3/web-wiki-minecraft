@@ -5,14 +5,14 @@
 [![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
 [![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-yellow?style=flat-square)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://kiramman-mp3.github.io/WikiCraft/)
+[![GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://kiramman-mp3.github.io/web-wiki-minecraft/)
 
 **WikiCraft** es una enciclopedia web de Minecraft para jugadores que buscan información rápida sobre bloques, mobs, crafteos y pociones, con una estética fiel al juego. Es un sitio estático: HTML, CSS y JavaScript sin backend ni base de datos.
 
 Es un proyecto académico sin fines de lucro: WikiCraft no incluye publicidad propia, donaciones ni ninguna otra forma de monetización. No está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
 
 > [!TIP]
-> Para verlo funcionando visita la **[versión en vivo](https://kiramman-mp3.github.io/WikiCraft/)** o, en local, ejecuta `npm start` y abre `http://localhost:8080`.
+> Para verlo funcionando visita la **[versión en vivo](https://kiramman-mp3.github.io/web-wiki-minecraft/)** o, en local, ejecuta `npm start` y abre `http://localhost:8080`.
 
 ---
 
@@ -131,11 +131,11 @@ LICENSE               # Licencia MIT
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/kiramman-mp3/WikiCraft.git
+   git clone https://github.com/kiramman-mp3/web-wiki-minecraft.git
    ```
 2. Entra al directorio:
    ```bash
-   cd WikiCraft
+   cd web-wiki-minecraft
    ```
 3. Inicia un servidor estático. Los módulos ES no funcionan abriendo `index.html` con `file://`:
    ```bash
@@ -173,7 +173,7 @@ npm run verify
 
 ## 🚀 Despliegue
 
-El sitio se publica en [GitHub Pages](https://kiramman-mp3.github.io/WikiCraft/). No hay paso de build ni variables que definir en la plataforma. Los cambios llegan a `main` solo por integración desde `develop`.
+El sitio se publica en [GitHub Pages](https://kiramman-mp3.github.io/web-wiki-minecraft/). No hay paso de build ni variables que definir en la plataforma. Los cambios llegan a `main` solo por integración desde `develop`.
 
 ---
 
