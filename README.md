@@ -1,98 +1,254 @@
 # 💎 WikiCraft — La Enciclopedia Definitiva de Minecraft
 
-[![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21+-green.svg?style=for-the-badge&logo=minecraft)](https://www.minecraft.net/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES%20modules-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://kiramman-mp3.github.io/WikiCraft/)
 
-**WikiCraft** no es solo una base de datos; es tu compañero esencial para sobrevivir, construir y dominar el mundo de los bloques. Un portal interactivo diseñado para aventureros que buscan información rápida, precisa y con una estética fiel al juego.
+**WikiCraft** es una enciclopedia web de Minecraft para jugadores que buscan información rápida sobre bloques, mobs, crafteos y pociones, con una estética fiel al juego. Es un sitio estático: HTML, CSS y JavaScript sin backend ni base de datos.
 
----
+Es un proyecto de aficionados del grupo de la FISEI y no está afiliado a Mojang Studios ni a Microsoft. La estructura de la portada se inspira en la organización de minecraft.net; el arte, los textos y el estilo son propios.
 
-## 🚀 ¡Pruébalo Ahora!
-
-¿Listo para explorar? Visita la versión en vivo:
-👉 **[WikiCraft en GitHub Pages](https://kiramman-mp3.github.io/WikiCraft/)** 👈
-
----
-
-## ✨ Características Principales
-
-### ⚒️ Domina los Bloques
-Aprende sobre cada material, desde la humilde tierra hasta la poderosa netherita. Descubre sus usos, resistencia y dónde encontrarlos.
-
-### 🧟 Conoce a tus Vecinos (y Enemigos)
-Guía completa de Mobs. Estrategias de combate para Creepers y consejos para criar Aldeanos. ¡No dejes que el Warden te sorprenda!
-
-### 📜 El Arte del Crafteo
-Recetario interactivo con todo lo que necesitas para fabricar herramientas, armaduras y decoraciones épicas.
-
-### 🧪 Alquimia Maestra
-Conviértete en un experto en pociones. Guías paso a paso para destilar los efectos más poderosos del juego.
-
-### 📡 Últimas Noticias de la Comunidad
-Integración en tiempo real con lo mejor de la comunidad de Minecraft en Reddit. ¡Mantente al día con las actualizaciones y secretos!
+> [!TIP]
+> Para verlo funcionando visita la **[versión en vivo](https://kiramman-mp3.github.io/WikiCraft/)** o, en local, ejecuta `npm start` y abre `http://localhost:8080`.
 
 ---
 
-## 📸 Galería del Proyecto
+## 📖 Descripción
+
+### ¿Qué problema resuelve?
+
+La información de Minecraft está dispersa y suele ser larga o difícil de recorrer. WikiCraft la reúne en siete páginas cortas, navegables y con un diseño coherente.
+
+### ¿Qué hace?
+
+1. Muestra una portada con carrusel, tarjetas de sección, bloques destacados y un selector por pestañas.
+2. Ofrece una página por tema: bloques, mobs, crafteos, alquimia, comunidad y un juego en el navegador.
+3. Carga noticias de Reddit (`r/minecraft` y `r/minecraftespanol`) a través de un proxy CORS.
+4. Si las noticias no cargan, muestra un estado de error con botón de reintento.
+
+### ¿Para quién está pensado?
+
+Para jugadores de Minecraft que quieren consultar datos rápidos, y para el grupo de desarrollo como práctica de HTML, CSS y JavaScript modular.
+
+---
+
+## 📸 Capturas
 
 | Inicio | Bloques | Mobs |
 | :---: | :---: | :---: |
-| ![Página Principal](images/Pag_Prin.png) | ![Bloques](images/bloque1.png) | ![Mobs](images/mobs1.png) |
+| <img src="images/Pag_Prin.png" width="420"><br><sub>Portada</sub> | <img src="images/bloque1.png" width="420"><br><sub>Bloques del Overworld</sub> | <img src="images/mobs1.png" width="420"><br><sub>Mobs</sub> |
 
 | Crafteos | Alquimia | Comunidad |
 | :---: | :---: | :---: |
-| ![Crafteos](images/craft1.png) | ![Pociones](images/Poc1.png) | ![Historias](images/hist1.png) |
+| <img src="images/craft1.png" width="420"><br><sub>Crafteos</sub> | <img src="images/Poc1.png" width="420"><br><sub>Pociones</sub> | <img src="images/hist1.png" width="420"><br><sub>Historias de la comunidad</sub> |
+
+> [!NOTE]
+> Las capturas son anteriores al rediseño de la portada y están pendientes de regenerar.
 
 ---
 
-## 🛠️ Tecnologías
+## ✨ Características
 
-WikiCraft está construido con lo último en estándares web para ofrecer una experiencia fluida y visualmente "pixel-perfect":
-
-- **Core**: HTML5, JavaScript (ES6+).
-- **Estilo**: CSS3 (con un tema oscuro personalizado de Minecraft) y Bootstrap 5.
-- **Flujo de Trabajo**: GitFlow para un desarrollo profesional y organizado.
+- **Bloques**: materiales del Overworld y del End con su uso y dónde encontrarlos.
+- **Mobs**: criaturas hostiles, neutrales y peligros del Nether.
+- **Crafteos**: recetas de herramientas, equipo de combate y bloques de utilidad.
+- **Alquimia**: fundamentos, efectos y modificadores de pociones.
+- **Comunidad**: relatos de la comunidad y publicaciones recientes de Reddit.
+- **Jugar**: Minecraft jugable en el navegador (Eaglercraft) incrustado desde un sitio externo.
+- **Diseño Minecraft propio**: fondo de piedra, barra de tablones, bordes con bisel y texturas de 16x16.
+- **Carrusel accesible**: botón de pausa y sin autoplay si el usuario prefiere menos movimiento.
+- **Seguridad del cliente**: Content Security Policy, URLs `https` validadas y enlaces externos con `rel="noopener noreferrer"`.
 
 ---
 
-## 🎮 Instalación Local
+## 🛠️ Tecnologías Utilizadas
 
-Si prefieres correr WikiCraft en tu propio "servidor" local:
+- **Frontend**: HTML5, CSS3 (`css/styles.css` y `css/home.css`), JavaScript con ES modules, Bootstrap 5.3.5 servido localmente desde `assets/dist/`.
+- **Backend**: ninguno. Las noticias se piden a Reddit mediante un proxy CORS externo.
+- **Base de datos**: ninguna.
+- **Pruebas**: `node:test` y un verificador estático propio (`scripts/check-site.mjs`).
+- **Herramientas**: Python 3 (servidor local y `scripts/generate-art.py` con Pillow) y Node.js.
+- **Despliegue**: GitHub Pages.
 
-1. **Clona el reino:**
+---
+
+## 🏗️ Arquitectura
+
+```mermaid
+graph TD
+    HTML["index.html / views/*.html"] --> MAIN["main.js"]
+    HTML --> COM["views/comunityview.js"]
+    MAIN --> CAR["CarouselController"]
+    MAIN --> UI["UIController"]
+    MAIN --> NEWS["NewsController"]
+    COM --> NEWS
+    NEWS --> MODEL["NewsModel"]
+    NEWS --> VIEW["NewsView"]
+    MODEL --> SAFE["safeUrl"]
+    VIEW --> SAFE
+    MODEL --> PROXY["Proxy CORS (REDDIT_PROXY)"]
+    PROXY --> REDDIT["Reddit"]
+```
+
+Cada página carga `main.js`, que inicia el carrusel, el botón de subir y las noticias. Las noticias siguen un patrón modelo, vista y controlador: el modelo pide y limpia los datos, la vista construye el DOM con `textContent` y el controlador gestiona los estados de carga, error y vacío.
+
+---
+
+## 🗂️ Estructura del Proyecto
+
+```bash
+index.html            # Inicio
+views/                # Páginas (bloques, mobs, crafteos, alquimia, comunidad, jugar) y vistas JS
+controllers/          # NewsController (carga y estados), CarouselController (carrusel) y UIController (botón de subir)
+models/               # NewsModel (Reddit) y safeUrl (validador de URLs https)
+main.js               # Punto de entrada común a todas las páginas
+css/styles.css        # Sistema de diseño Minecraft (cabecera, pie, componentes)
+css/home.css          # Estilos exclusivos de la portada
+assets/dist/          # Bootstrap local
+images/textures/      # Texturas pixeladas de 16x16 usadas por el CSS
+images/art/           # Ilustraciones generadas (tarjetas, banners, diapositivas)
+tests/                # Pruebas con node:test
+scripts/              # check-site.mjs (verificador estático) y generate-art.py (regenera images/art/)
+AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
+CONTRIBUTING.md       # Guía para contribuir
+```
+
+---
+
+## 📋 Requisitos del Sistema
+
+- **Python 3**: para `npm start`. Sirve cualquier otro servidor estático.
+- **Node.js 20 o superior**: para `npm test`, `npm run check` y `npm run verify`.
+- **Pillow** (`pip install pillow`): solo para regenerar `images/art/` con `scripts/generate-art.py`.
+- **Navegador moderno**: las animaciones por scroll son una mejora progresiva.
+- **Producción**: solo un hosting estático con HTTPS.
+
+---
+
+## ⚙️ Instalación y Configuración
+
+1. Clona el repositorio:
    ```bash
    git clone https://github.com/kiramman-mp3/WikiCraft.git
    ```
-2. **Entra al directorio:**
+2. Entra al directorio:
    ```bash
    cd WikiCraft
    ```
-3. **¡A jugar!**
-   Simplemente abre el archivo `index.html` en tu navegador favorito.
+3. Inicia un servidor estático. Los módulos ES no funcionan abriendo `index.html` con `file://`:
+   ```bash
+   npm start
+   ```
+4. Abre `http://localhost:8080`.
+
+No hay variables de entorno ni `npm install` obligatorio: Bootstrap ya está en `assets/dist/`. La URL del proxy está en la constante `REDDIT_PROXY` de `models/NewsModel.js`. Si usas un proxy con clave, nunca la guardes en el repositorio.
 
 ---
 
-## 🤝 Uniendo Fuerzas (Contribuciones)
+## ▶️ Uso y Ejecución
 
-¿Quieres ayudarnos a mejorar WikiCraft? ¡Eres bienvenido!
+### Desarrollo local
 
-1. Realiza un **Fork** de este proyecto.
-2. Crea tu rama de características (`git checkout -b feature/EpicFeature`).
-3. Haz **Commit** de tus cambios.
-4. Abre un **Pull Request** y cuéntanos sobre tu mejora.
+```bash
+npm start
+```
+
+### Verificación antes de integrar
+
+```bash
+npm run verify
+```
+
+| Comando | Qué hace |
+| :--- | :--- |
+| `npm start` | Sirve el sitio en `http://localhost:8080` |
+| `npm test` | Pruebas del modelo de noticias (`tests/`) |
+| `npm run check` | Verifica enlaces locales, `alt`, ids, anclas, CSP, navegación y estructura de las 7 páginas |
+| `npm run verify` | Ejecuta `check` y `test` |
+| `python scripts/generate-art.py` | Regenera las ilustraciones de `images/art/` (requiere Pillow) |
 
 ---
 
-## 👑 El Equipo de Desarrollo
+## 🚀 Despliegue
 
-Este proyecto fue forjado con pasión por:
-
-- **Alexis López**
-- **José Manzano**
-- **Alan Puruncajas**
-- **Johan Rodríguez**
-- **Juan Pablo Vayas**
+El sitio se publica en [GitHub Pages](https://kiramman-mp3.github.io/WikiCraft/). No hay paso de build ni variables que definir en la plataforma. Los cambios llegan a `main` solo por integración desde `develop`.
 
 ---
 
-*Desarrollado con ❤️ para la comunidad de Minecraft.*
+## 🔍 Detalles Técnicos
+
+### Noticias y proxy de Reddit
+
+Las noticias y la comunidad dependen de un proxy CORS configurado en `REDDIT_PROXY` (`models/NewsModel.js`). El proxy actual (`corsproxy.io`) responde `403 keyless_legacy_url` porque exige API key, así que hoy esas secciones muestran el estado de error con botón de reintento. La solución pendiente es usar un proxy propio y ajustar la CSP.
+
+### Seguridad
+
+| Medida | Dónde |
+| :--- | :--- |
+| Content Security Policy sin `unsafe-inline` | `<meta>` de cada página |
+| Sin atributos `style=` en línea | Verificado por `npm run check` |
+| Solo URLs `https` en imágenes y enlaces de noticias | `models/safeUrl.js` |
+| DOM construido con `textContent` | `views/NewsView.js` |
+| `rel="noopener noreferrer"` en enlaces externos | Todas las páginas |
+
+### Diseño y accesibilidad
+
+- Tokens de color y bisel en `css/styles.css`; fuente pixelada solo en títulos y botones.
+- Contraste WCAG AA en textos y botones, foco visible y `prefers-reduced-motion` respetado.
+- Sin desbordamiento horizontal en las 7 páginas a 375, 430, 768, 1366 y 1920 px.
+
+### Informe de auditoría
+
+El detalle de problemas, mejoras y pendientes está en `AUDITORIA_Y_MEJORAS.md`.
+
+---
+
+## 🗺️ Roadmap de Funcionalidades
+
+- [x] Siete páginas con navegación común y menús desplegables.
+- [x] Sistema de diseño Minecraft y rediseño de la portada.
+- [x] Carrusel accesible con pausa.
+- [x] Noticias con estados de carga, error y vacío.
+- [x] Content Security Policy y validación de URLs.
+- [x] Pruebas del modelo y verificador estático de las páginas.
+- [ ] Proxy propio para las noticias de Reddit.
+- [ ] Linter y pruebas end to end.
+- [ ] Retirar o comprimir imágenes sin uso.
+- [ ] Regenerar las capturas del README.
+- [ ] Añadir un archivo `LICENSE`.
+
+---
+
+## 👥 Contribuidores
+
+Número de commits según `git shortlog -sn`:
+
+| Contribuidor | Commits |
+| :--- | :---: |
+| kiramman-mp3 | 68 |
+| IngePablito | 24 |
+| Johan Kiramman | 22 |
+| Aleduss07 | 13 |
+| José Manzano | 10 |
+| Kiramman-mp3 | 7 |
+| Alan Cuenca | 5 |
+
+Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde `develop` y abre un Pull Request.
+
+<details>
+<summary>📚 Fuentes y referencias</summary>
+
+- [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/)
+- [minecraft.net](https://www.minecraft.net/es-es): referencia de la organización de la portada.
+- [r/minecraft](https://www.reddit.com/r/minecraft/) y [r/minecraftespanol](https://www.reddit.com/r/minecraftespanol/): origen de las noticias.
+- [minecraftforfreex.com](https://minecraftforfreex.com): juego incrustado en la página Jugar.
+
+</details>
+
+---
+
+## 🧑‍💻 Autor
+
+**kiramman-mp3**

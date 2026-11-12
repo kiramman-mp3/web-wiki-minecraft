@@ -1,7 +1,9 @@
 /**
  * UIController.js
- * Handles general UI interactions like theme setting and scroll to top.
+ * General UI helpers: scroll-to-top button.
  */
+
+const SCROLL_THRESHOLD = 300;
 
 export function initUIHelpers() {
   createScrollToTopButton();
@@ -9,36 +11,22 @@ export function initUIHelpers() {
 
 function createScrollToTopButton() {
   const btn = document.createElement('button');
-  btn.innerHTML = '↑';
+  btn.type = 'button';
   btn.id = 'scrollToTop';
-  btn.className = 'btn-minecraft floating';
-  btn.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: none;
-    z-index: 1000;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    line-height: 42px;
-    font-size: 24px;
-  `;
-  
+  btn.className = 'btn-minecraft scroll-top';
+  btn.textContent = '↑';
+  btn.setAttribute('aria-label', 'Volver arriba');
+  btn.hidden = true;
   document.body.appendChild(btn);
 
-  window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
+  const toggle = () => {
+    btn.hidden = window.scrollY <= SCROLL_THRESHOLD;
   };
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
 
-  btn.onclick = function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  btn.addEventListener('click', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
 }

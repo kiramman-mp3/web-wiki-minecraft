@@ -1,4 +1,10 @@
-/* Tipografías */
+/* ==========================================================================
+   WikiCraft — Minecraft design system
+   1. Tokens   2. Base   3. Layout   4. Navbar   5. Hero   6. Panels & cards
+   7. Buttons  8. Components   9. Tables   10. Footer   11. Responsive
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
 @font-face {
   font-family: 'Minecraft';
   src: url('./minecraft_fot_esp.ttf') format('truetype');
@@ -8,444 +14,993 @@
 }
 
 :root {
-  /* Minecraft Color Palette */
-  --mc-dark-gray: #1e1e1e;
-  --mc-gray: #313131;
-  --mc-light-gray: #c6c6c6;
-  --mc-white: #ffffff;
-  --mc-green: #5da037;
-  --mc-light-green: #7abf5a;
-  --mc-dark-green: #2a4a1c;
-  --mc-dirt-brown: #866043;
-  --mc-stone-gray: #797979;
-  --mc-gold: #ffffff;
-  --mc-red: #b92b27;
+  /* Grass */
+  --mc-grass: #3f7a1f;
+  --mc-grass-hi: #5a9e30;
+  --mc-grass-lo: #2a5214;
+  --mc-grass-edge: #0f1f08;
+  --mc-xp: #7ee02a;
+  /* Stone (UI surfaces) */
+  --mc-stone-950: #141416;
+  --mc-stone-900: #1c1c1f;
+  --mc-stone-800: #2b2b2e;
+  --mc-stone-700: #3c3c40;
+  --mc-stone-600: #5c5c61;
+  --mc-stone-400: #9b9ba1;
+  /* Earth */
+  --mc-dirt: #6e4c30;
+  --mc-wood: #8a5a2b;
+  --mc-wood-dark: #422c18;
+  --mc-sand: #dbcf9c;
+  --mc-water: #4a86e8;
+  --mc-gold: #ffc72c;
+  --mc-gold-hi: #ffe27a;
+  --mc-gold-lo: #c68a00;
+  --mc-green-text: #8fd35a;
+  /* Text */
+  --text-primary: #f4f1ea;
+  --text-secondary: #d3cdc4;
+  --text-muted: #aaa49b;
+  --mc-focus: #ffd84a;
 
-  /* UI Tokens */
-  --navbar-bg: rgba(30, 30, 30, 0.95);
-  --card-bg: rgba(49, 49, 49, 0.85);
-  --btn-primary-bg: #5da037;
-  --btn-primary-border: #2a4a1c;
-  --btn-primary-shadow: #1e3314;
-  --text-primary: #ffffff;
-  --text-secondary: #d0c5c0;
-  --pixel-border: 4px;
+  /* Type */
+  --font-pixel: 'Minecraft', 'Courier New', monospace;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Shape */
+  --pixel: 4px;
+  --shadow-block: 8px 8px 0 rgba(0, 0, 0, 0.45);
+
+  /* Bootstrap: square corners and hard block shadows everywhere */
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+
+  /* Bootstrap semantic colours, tuned for contrast on stone surfaces */
+  --bs-danger-rgb: 255, 99, 99;
+  --bs-info-rgb: 96, 200, 240;
+  --bs-warning-rgb: 255, 196, 64;
+  --bs-success-rgb: 124, 205, 72;
 }
 
-/* Global Styles */
+/* 2. Base ------------------------------------------------------------------ */
 body {
-  background: url('../images/bg-minecraft.png') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Minecraft';
-  color: var(--mc-white);
+  background: var(--mc-stone-900);
+  font-family: var(--font-body);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
+/* Stone tile behind everything; a pseudo-element so pixelation is not inherited. */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* Ambient shadow */
+  inset: 0;
   z-index: -1;
+  background: url('../images/textures/stone.png') 0 0 / 64px 64px;
+  image-rendering: pixelated;
 }
 
-/* Navbar */
-.navbar {
-  background-color: var(--navbar-bg) !important;
-  backdrop-filter: blur(15px);
-  border-bottom: var(--pixel-border) solid var(--mc-gray);
-  padding: 0.8rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1050;
-  /* Above everything (Bootstrap standard) */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+.card-icon,
+.mob-icon {
+  image-rendering: pixelated;
 }
 
-.minecraft-logo {
-  background: url('../images/icon-minecraft.svg') no-repeat center center;
-  background-size: contain;
-  display: inline-block;
-  width: 200px;
-  height: 48px;
-  transition: transform 0.2s ease;
-}
-
-.minecraft-logo:hover {
-  transform: scale(1.05);
-}
-
-.nav-link {
-  color: var(--text-secondary) !important;
-  font-size: 1.1rem;
-  margin: 0 10px;
-  transition: all 0.2s steps(4);
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--mc-light-green) !important;
-  text-shadow: 2px 2px var(--mc-dark-green);
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--mc-light-green);
-  box-shadow: 2px 2px var(--mc-dark-green);
-}
-
-/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Minecraft', sans-serif;
+  font-family: var(--font-pixel);
+  font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
 }
 
 h1 {
-  font-size: 3.5rem;
-  color: var(--mc-white);
-  text-shadow: 4px 4px #000;
+  font-size: clamp(1.9rem, 1rem + 4.5vw, 3.5rem);
+  color: var(--text-primary);
+  text-shadow: 4px 4px 0 #000;
 }
 
 h2 {
-  font-size: 2.2rem;
-  color: var(--mc-light-green);
-  text-shadow: 3px 3px #000;
+  font-size: clamp(1.6rem, 1rem + 2.4vw, 2.6rem);
+  color: #fff;
+  text-shadow: 3px 3px 0 #000;
+}
+
+/* Big centred heading that opens a page section. */
+.section-title {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(2rem, 1rem + 4vw, 3.6rem);
+  text-align: center;
+  text-shadow: 4px 4px 0 #000;
+}
+
+h3,
+h4 {
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+  text-shadow: 2px 2px 0 #000;
 }
 
 p {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Minecraft';
-  /* Standard font for readability */
-  text-align: justify;
   font-size: 1.05rem;
   color: var(--text-secondary);
 }
 
-/* Sections */
-section {
-  padding: 8rem 0;
-  background: transparent;
-  position: relative;
-  z-index: 2;
+a {
+  color: #8fd35a;
 }
 
-.glass-panel {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(15px);
-  border: 4px solid rgba(255, 255, 255, 0.05);
-  padding: 4rem 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+a:hover {
+  color: #b6ec86;
 }
 
-.hero-section {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, transparent 80%);
-  /* Removed negative margin to avoid overlap with navbar */
+:focus-visible {
+  outline: 3px solid var(--mc-focus);
+  outline-offset: 3px;
 }
 
-/* Cards & Containers */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-}
-
-.card {
-  background-color: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border: var(--pixel-border) solid var(--mc-gray);
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 0 !important;
-  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  /* Center content */
-}
-
-.card-featured {
-  grid-column: span 2;
-  border-color: #ffffff;
-}
-
-@media (max-width: 992px) {
-  .card-featured {
-    grid-column: span 1;
-  }
-}
-
-.card:hover {
-  transform: translate(-8px, -8px);
-  box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.7);
-  border-color: var(--mc-light-green);
-}
-
-.card-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  object-fit: contain;
-  image-rendering: pixelated;
-}
-
-.card-title {
-  color: #ffffff;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.card-body {
-  padding: 2rem;
-}
-
-.fixed-image {
-  width: 128px;
-  height: 128px;
-  object-fit: contain;
-  image-rendering: pixelated;
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.card:hover .fixed-image {
-  transform: scale(1.1) rotate(5deg);
-}
-
-/* Buttons */
-.btn-minecraft {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Minecraft';
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--mc-white);
-  background: var(--mc-green);
-  border: var(--pixel-border) solid var(--mc-dark-green);
-  box-shadow: inset -4px -4px 0 var(--mc-dark-green),
-    inset 4px 4px 0 var(--mc-light-green);
-  padding: 10px 20px;
-  text-transform: uppercase;
-  border-radius: 0;
-  transition: all 0.1s steps(4);
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn-minecraft:hover {
-  background: var(--mc-light-green);
-  transform: translateY(-2px);
-  color: var(--mc-white);
-}
-
-.btn-minecraft:active {
-  transform: translateY(2px);
-  box-shadow: inset 4px 4px 0 var(--mc-dark-green),
-    inset -4px -4px 0 var(--mc-light-green);
-}
-
-/* Tables */
-.table {
-  background: var(--card-bg);
-  color: var(--text-secondary);
-  border: var(--pixel-border) solid var(--mc-gray);
-}
-
-.table th {
-  background: var(--mc-dark-gray);
-  color: #ffffff;
-  border-bottom: var(--pixel-border) solid var(--mc-gray);
-  text-transform: uppercase;
-}
-
-.table td {
-  border-color: rgba(255, 255, 255, 0.1);
-  vertical-align: middle;
-}
-
-/* Footer */
-footer {
-  background: var(--mc-dark-gray);
-  border-top: var(--pixel-border) solid var(--mc-gray);
-  padding: 3rem 0;
-  color: var(--mc-light-gray);
-}
-
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--mc-dark-gray);
+  background: var(--mc-stone-900);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--mc-stone-gray);
-  border: 3px solid var(--mc-dark-gray);
+  background: var(--mc-stone-600);
+  border: 3px solid var(--mc-stone-900);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--mc-light-gray);
+  background: var(--mc-stone-400);
 }
 
-/* Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
+/* 3. Layout ---------------------------------------------------------------- */
+.mc-section {
+  padding: clamp(1rem, 3vw, 2rem) 0;
+  scroll-margin-top: 5.5rem;
 }
 
-.floating {
-  animation: float 4s ease-in-out infinite;
+main {
+  padding-bottom: 2rem;
 }
 
-/* Scroll Entrance Animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+/* 4. Header ---------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  background: var(--mc-stone-950);
+  color: #fff;
+  border: var(--pixel) solid var(--mc-focus);
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+.skip-link:focus {
+  top: 1rem;
+  color: #fff;
 }
 
-/* Responsive Design Refinements */
-@media (max-width: 991px) {
-  h1 { font-size: 2.8rem; }
-  h2 { font-size: 2rem; }
-  .hero-section { min-height: 70vh; }
-  .glass-panel { padding: 3rem 1.5rem; }
+.navbar {
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: #b6ec86;
+  --bs-navbar-active-color: #b6ec86;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  padding: 0.5rem 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    var(--mc-wood-dark) url('../images/textures/planks.png') 0 0 / 64px 64px;
+  border-bottom: var(--pixel) solid #0d0804;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35);
+  image-rendering: pixelated;
 }
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.2rem; text-shadow: 2px 2px #000; }
-  h2 { font-size: 1.6rem; }
-  p { font-size: 1rem; }
-
-  .hero-section { min-height: 60vh; padding: 4rem 0; }
-  .glass-panel { padding: 2rem 1rem; margin: 1rem 0; }
-
-  .minecraft-logo {
-    width: 140px;
-    height: 38px;
-  }
-
-  .nav-link {
-    margin: 5px 0;
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .card-body { padding: 1.5rem; }
-  .card-icon { width: 64px; height: 64px; }
-  
-  .iframe-container iframe {
-    height: 50vh !important;
-  }
+.minecraft-logo {
+  display: inline-block;
+  width: 200px;
+  height: 48px;
+  margin-right: 1rem;
+  background: url('../images/icon-minecraft.svg') no-repeat center / contain;
+  transition: transform 0.15s steps(3);
 }
 
-@media (max-width: 480px) {
-  h1 { font-size: 1.8rem; }
-  .btn-minecraft { width: 100%; text-align: center; }
+.minecraft-logo:hover {
+  transform: scale(1.05);
 }
 
-/* Community Story Cards (Specific) */
-.story-card {
-  background: var(--card-bg);
-  border: var(--pixel-border) solid var(--mc-gray);
+.navbar .nav-link {
+  position: relative;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+  background: none;
+  border: 0;
 }
 
-/* Unified News Cards */
-.news-card {
-  background-color: var(--card-bg) !important;
-  border: var(--pixel-border) solid var(--mc-gray) !important;
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5) !important;
-  border-radius: 0 !important;
-  transition: all 0.2s steps(4);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.navbar .nav-link.active::before {
+  content: '';
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.35rem;
+  left: 0.9rem;
+  height: var(--pixel);
+  background: var(--mc-xp);
+  box-shadow: 2px 2px 0 var(--mc-grass-lo);
 }
 
-.news-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.6);
-  border-color: var(--mc-light-green) !important;
+/* Chevron shared by dropdown toggles and call-to-action buttons. */
+.dropdown-toggle::after,
+.has-chevron::after {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-left: 0.55em;
+  vertical-align: 0.15em;
+  content: '';
+  border: 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
 }
 
-.news-card-img {
-  height: 220px;
-  width: 100%;
-  object-fit: cover;
-  border-bottom: var(--pixel-border) solid var(--mc-gray);
+.has-chevron::after {
+  vertical-align: 0.05em;
+  transform: rotate(-45deg);
 }
 
-.news-card-body {
-  padding: 1.5rem !important;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.navbar .dropdown-menu {
+  --bs-dropdown-bg: var(--mc-stone-900);
+  --bs-dropdown-border-width: 0;
+  --bs-dropdown-border-radius: 0;
+  --bs-dropdown-padding-y: 0.5rem;
+  min-width: 16rem;
+  margin-top: 0;
+  border: var(--pixel) solid #111113;
+  box-shadow: inset 4px 4px 0 var(--mc-stone-700), inset -4px -4px 0 #0e0e10, var(--shadow-block);
 }
 
-.news-card-title {
-  color: var(--mc-light-green);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  height: 3rem;
-  /* Fixed height for 2 lines */
-  overflow: hidden;
-}
-
-.news-card-text {
-  font-size: 0.95rem;
+.navbar .dropdown-item {
+  padding: 0.55rem 1rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  height: 4.5rem;
-  /* Fixed height for ~3 lines */
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus,
+.navbar .dropdown-item.active {
+  color: #fff;
+  background: var(--mc-grass);
+}
+
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--mc-green-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.35);
+  border: 2px solid #5fb83a;
+  transition: background 0.1s steps(2);
+}
+
+.btn-cta:hover,
+.btn-cta[aria-current='page'] {
+  color: #fff;
+  background: var(--mc-grass);
+  border-color: var(--mc-grass-hi);
+}
+
+.navbar-toggler {
+  padding: 0.4rem 0.6rem;
+  background: #6b6b70;
+  border: var(--pixel) solid #111113;
+  border-radius: 0;
+  box-shadow: inset 4px 4px 0 var(--mc-stone-400), inset -4px -4px 0 #3d3d42;
+}
+
+.navbar-toggler:focus {
+  box-shadow: inset 4px 4px 0 var(--mc-stone-400), inset -4px -4px 0 #3d3d42;
+}
+
+/* Bootstrap replaces the outline with a low-contrast shadow on these controls. */
+.nav-link:focus-visible,
+.navbar-toggler:focus-visible,
+.dropdown-item:focus-visible,
+.btn-cta:focus-visible {
+  outline: 3px solid var(--mc-focus);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Scroll progress rendered as an experience bar (progressive enhancement). */
+@supports (animation-timeline: scroll()) {
+  .navbar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: calc(var(--pixel) * -2);
+    left: 0;
+    height: var(--pixel);
+    background: var(--mc-xp);
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: xp-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes xp-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* 5. Hero ------------------------------------------------------------------ */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 4rem 0 6rem;
+  text-align: center;
+  background:
+    linear-gradient(rgba(10, 10, 12, 0.5), rgba(10, 10, 12, 0.82)),
+    url('../images/hero-bg.webp') center / cover no-repeat;
+}
+
+.hero-section--compact {
+  min-height: 46vh;
+}
+
+/* Grass-topped ground line at the bottom of the hero. */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 48px;
+  background: url('../images/textures/grass-side.png') 0 0 / 48px 48px repeat-x;
+  image-rendering: pixelated;
+}
+
+/* Per-page banner art generated by scripts/generate-art.py */
+.hero--bloques { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-bloques.webp'); }
+.hero--mobs { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-mobs.webp'); }
+.hero--crafteos { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-crafteos.webp'); }
+.hero--alquimia { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-alquimia.webp'); }
+.hero--comunidad { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-comunidad.webp'); }
+.hero--jugar { background-image: linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.8)), url('../images/art/banner-jugar.webp'); }
+
+.hero-lead {
+  max-width: 50rem;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 1rem + 0.5vw, 1.3rem);
+  color: var(--text-primary);
+  text-align: center;
+  text-shadow: 1px 1px 3px #000;
+}
+
+/* 6. Panels & cards -------------------------------------------------------- */
+/* Inventory-window look: raised bevel on a dark stone surface. */
+.mc-panel {
+  margin: 1rem 0;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: var(--mc-stone-700);
+  border: var(--pixel) solid #111113;
+  box-shadow:
+    inset 4px 4px 0 var(--mc-stone-600),
+    inset -4px -4px 0 #26262a,
+    var(--shadow-block);
+}
+
+/* Slot look: sunken bevel. */
+.card {
+  --bs-card-border-radius: 0;
+  --bs-card-bg: var(--mc-stone-800);
+  --bs-card-color: var(--text-secondary);
+  background: var(--mc-stone-800);
+  border: var(--pixel) solid #111113;
+  border-radius: 0;
+  box-shadow: inset 4px 4px 0 var(--mc-stone-950), inset -4px -4px 0 #4a4a4f;
+  transition: transform 0.15s steps(3), border-color 0.15s steps(3);
+}
+
+.card {
+  height: 100%;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mc-grass-hi);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  /* Keep icons aligned when one title wraps to two lines. */
+  .col-md-4 .card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.6em;
+  }
+}
+
+.card-body > .mt-auto {
+  width: 100%;
+}
+
+.mc-wide {
+  max-width: 900px;
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-featured {
+  border-color: var(--mc-grass-hi);
+}
+
+.card-icon,
+.mob-icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.25rem;
+  object-fit: contain;
+  transition: transform 0.2s steps(4);
+}
+
+.card:hover .card-icon,
+.card:hover .mob-icon {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.mc-tip {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.35);
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.mc-tip--lg {
+  padding: 1.25rem;
+}
+
+/* News / community tiles */
+.news-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3.2;
   overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  background: #000;
+  border: var(--pixel) solid #111113;
+}
+
+.news-tile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s steps(5);
+}
+
+.news-tile:hover .news-tile__img,
+.news-tile:focus-visible .news-tile__img {
+  transform: scale(1.06);
+}
+
+.news-tile__shade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3rem 1rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.92));
+}
+
+.news-tile__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.news-tile__chip {
+  padding: 0.1rem 0.45rem;
+  font-family: var(--font-pixel);
+  color: #111;
+  background: #fff;
+}
+
+.news-tile__title {
   display: -webkit-box;
+  margin: 0.5rem 0 0;
+  overflow: hidden;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+  text-shadow: none;
+  text-transform: none;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   line-clamp: 3;
 }
 
-.news-card-meta {
+/* 7. Buttons --------------------------------------------------------------- */
+.btn-minecraft {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-pixel);
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  background: var(--mc-grass);
+  border: var(--pixel) solid var(--mc-grass-edge);
+  border-radius: 0;
+  box-shadow: inset 4px 4px 0 var(--mc-grass-hi), inset -4px -4px 0 var(--mc-grass-lo);
+  cursor: pointer;
+  transition: transform 0.1s steps(2);
+}
+
+.btn-minecraft:hover {
+  color: #fff;
+  background: #35691a;
+  transform: translateY(-2px);
+}
+
+.btn-minecraft:active {
+  transform: translateY(2px);
+  box-shadow: inset 4px 4px 0 var(--mc-grass-lo), inset -4px -4px 0 var(--mc-grass-hi);
+}
+
+.btn-minecraft--gold {
+  color: #1a1200;
+  text-shadow: none;
+  background: var(--mc-gold);
+  border-color: #3a2a00;
+  box-shadow: inset 4px 4px 0 var(--mc-gold-hi), inset -4px -4px 0 var(--mc-gold-lo);
+}
+
+.btn-minecraft--gold:hover {
+  color: #1a1200;
+  background: #ffd54f;
+}
+
+.btn-minecraft--gold:active {
+  box-shadow: inset 4px 4px 0 var(--mc-gold-lo), inset -4px -4px 0 var(--mc-gold-hi);
+}
+
+.btn-minecraft--lg {
+  padding: 0.8rem 1.75rem;
+  font-size: 1.25rem;
+}
+
+.btn-minecraft--stone {
+  background: #6b6b70;
+  border-color: #111113;
+  box-shadow: inset 4px 4px 0 var(--mc-stone-400), inset -4px -4px 0 #3d3d42;
+}
+
+.btn-minecraft--stone:hover {
+  background: #4d5a8f;
+}
+
+.btn-minecraft--stone:active {
+  box-shadow: inset 4px 4px 0 #3d3d42, inset -4px -4px 0 var(--mc-stone-400);
+}
+
+.btn-minecraft:disabled,
+.btn-minecraft[aria-disabled='true'] {
+  color: var(--text-muted);
+  background: var(--mc-stone-700);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.scroll-top[hidden] {
+  display: none;
+}
+
+/* 8. Components ------------------------------------------------------------ */
+/* Item-tooltip style label. */
+.mc-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #e6d9ff;
+  background: #1a0a2e;
+  border: 2px solid #5b3d99;
+}
+
+.mc-tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
   font-size: 0.8rem;
-  color: var(--mc-stone-gray);
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Loading / empty / error states */
+.mc-status {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: var(--pixel) dashed var(--mc-stone-600);
+}
+
+.mc-status--error {
+  border-color: rgb(var(--bs-danger-rgb));
+}
+
+.mc-status__text {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.mc-status > :last-child {
+  margin-bottom: 0;
+}
+
+/* Experience bar used as an indeterminate loader. */
+.mc-xp-bar {
+  position: relative;
+  width: min(100%, 320px);
+  height: 16px;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 3px solid #000;
+  box-shadow: inset 0 0 0 2px #3d3d3d;
+}
+
+.mc-xp-bar__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35%;
+  background: repeating-linear-gradient(90deg, var(--mc-xp) 0 8px, #5bb01a 8px 10px);
+  animation: xp-load 1.6s steps(12) infinite;
+}
+
+@keyframes xp-load {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(300%);
+  }
+}
+
+/* Embedded game */
+.console-tab {
+  color: var(--text-secondary);
+}
+
+.console-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 0.25rem;
+  border-radius: 50%;
+}
+
+.iframe-container iframe {
+  display: block;
+  width: 100%;
+  height: 75vh;
+  min-height: 420px;
+  background: #000;
+  border: 0;
+}
+
+/* 9. Tables ---------------------------------------------------------------- */
+.table {
+  --bs-table-bg: var(--mc-stone-800);
+  --bs-table-color: var(--text-secondary);
+  --bs-table-hover-bg: var(--mc-stone-700);
+  --bs-table-hover-color: #fff;
+  margin-bottom: 0;
+  border: var(--pixel) solid #111113;
+}
+
+.table th {
+  font-family: var(--font-pixel);
+  font-weight: normal;
+  color: #fff;
   text-transform: uppercase;
+  background: var(--mc-stone-950);
+  border-bottom: var(--pixel) solid #111113;
+}
+
+.table td {
+  vertical-align: middle;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* 10. Footer --------------------------------------------------------------- */
+.site-footer {
+  margin-top: 4rem;
+  color: var(--text-secondary);
+  background: #0e0e10;
+}
+
+.site-footer__edge {
+  height: 48px;
+  background:
+    url('../images/textures/grass-side.png') 0 0 / 48px 48px repeat-x,
+    var(--mc-dirt);
+  image-rendering: pixelated;
+}
+
+.site-footer__main {
+  padding: 3rem 0 2rem;
+}
+
+.site-footer__brand {
+  display: block;
+  width: 200px;
+  height: 48px;
+  margin-bottom: 1rem;
+  background: url('../images/icon-minecraft.svg') no-repeat left center / contain;
+}
+
+.site-footer__heading {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.site-footer__links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-footer__links li {
+  margin-bottom: 0.4rem;
+}
+
+.site-footer__scene {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  height: 120px;
+  padding-bottom: 14px;
+}
+
+.site-footer__scene img {
+  width: auto;
+  height: 84px;
+  image-rendering: pixelated;
+}
+
+.site-footer__scene::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 14px;
+  background: url('../images/textures/grass-side.png') 0 0 / 28px 28px repeat-x;
+  image-rendering: pixelated;
+}
+
+.site-footer__legal {
+  padding: 1.25rem 0;
+  background: var(--mc-stone-800);
+  border-top: var(--pixel) solid #111113;
+}
+
+.site-footer__legal p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* 11. Responsive ----------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  /* Solid backing so link text never fights the plank texture. */
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+    background: rgba(20, 12, 6, 0.92);
+    border: var(--pixel) solid #1a0f08;
+  }
+
+  .navbar-nav {
+    padding: 0.5rem 0;
+  }
+
+  .navbar .nav-link {
+    width: 100%;
+    padding: 0.75rem 0.25rem;
+    text-align: left;
+  }
+
+  .navbar .nav-link.active::before {
+    right: auto;
+    left: 0.25rem;
+    width: 3rem;
+  }
+
+  .navbar .dropdown-menu {
+    margin: 0 0 0.5rem;
+    box-shadow: none;
+  }
+
+  .navbar .btn-cta {
+    margin: 0.25rem 0 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  p {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    min-height: 56vh;
+    padding: 3rem 0 5rem;
+  }
+
+  .hero-section--compact {
+    min-height: 40vh;
+  }
+
+  .minecraft-logo {
+    width: 150px;
+    height: 40px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .table th {
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  .iframe-container iframe {
+    height: 60vh;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .btn-minecraft {
+    width: 100%;
+  }
+
+  .scroll-top {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .mc-panel {
+    box-shadow:
+      inset 4px 4px 0 var(--mc-stone-600),
+      inset -4px -4px 0 #26262a,
+      4px 4px 0 rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Scroll entrance animation (CSS only: content stays visible if unsupported) */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .mc-xp-bar__fill {
+    width: 60%;
+  }
 }
