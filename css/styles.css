@@ -135,6 +135,14 @@ a:hover {
   outline-offset: 3px;
 }
 
+/* Bootstrap replaces the outline with a low-contrast shadow on these controls. */
+.nav-link:focus-visible,
+.navbar-toggler:focus-visible {
+  outline: 3px solid var(--mc-focus);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
 .skip-link {
   position: absolute;
   top: -100px;
