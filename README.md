@@ -203,34 +203,16 @@ El detalle de problemas, mejoras y pendientes está en `AUDITORIA_Y_MEJORAS.md`.
 
 ---
 
-## 🗺️ Roadmap de Funcionalidades
-
-- [x] Siete páginas con navegación común y menús desplegables.
-- [x] Sistema de diseño Minecraft y rediseño de la portada.
-- [x] Carrusel accesible con pausa.
-- [x] Noticias con estados de carga, error y vacío.
-- [x] Content Security Policy y validación de URLs.
-- [x] Pruebas del modelo y verificador estático de las páginas.
-- [ ] Proxy propio para las noticias de Reddit.
-- [ ] Linter y pruebas end to end.
-- [ ] Retirar o comprimir imágenes sin uso.
-- [x] Capturas del README regeneradas tras el rediseño.
-- [ ] Añadir un archivo `LICENSE`.
-
----
-
 ## 👥 Contribuidores
 
-Número de commits según `git shortlog -sn`:
+Número de commits según `git shortlog -sn`. Los commits de `kiramman-mp3`, `Kiramman-mp3` y `Johan Kiramman` se suman porque son la misma persona, y `IngePablito` y `Aleduss07` figuran con su nombre real.
 
 | Contribuidor | Commits |
 | :--- | :---: |
-| kiramman-mp3 | 68 |
-| IngePablito | 24 |
-| Johan Kiramman | 22 |
-| Aleduss07 | 13 |
+| kiramman-mp3 | 102 |
+| Pablo Vayas | 24 |
+| Alexis López | 13 |
 | José Manzano | 10 |
-| Kiramman-mp3 | 7 |
 | Alan Cuenca | 5 |
 
 Para colaborar, lee `CONTRIBUTING.md`: crea una rama `feature/*` o `fix/*` desde `develop` y abre un Pull Request.
