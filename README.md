@@ -50,7 +50,7 @@ Integración en tiempo real con lo mejor de la comunidad de Minecraft en Reddit.
 WikiCraft está construido con lo último en estándares web para ofrecer una experiencia fluida y visualmente "pixel-perfect":
 
 - **Core**: HTML5, JavaScript (ES modules).
-- **Estilo**: CSS3 con un sistema de diseño Minecraft propio (`css/styles.css`) y Bootstrap 5.3.5 servido localmente desde `assets/dist/`.
+- **Estilo**: CSS3 con un sistema de diseño Minecraft propio (`css/styles.css`, más `css/home.css` en la portada) y Bootstrap 5.3.5 servido localmente desde `assets/dist/`. La estructura de la portada (cabecera con menús, carrusel, tarjetas, selector, noticias y pie) se inspira en la organización de minecraft.net, con arte y estilo propios.
 - **Pruebas**: `node:test` (Node 20 o superior) sin dependencias adicionales.
 - **Flujo de Trabajo**: GitFlow para un desarrollo profesional y organizado.
 
@@ -93,13 +93,15 @@ Si prefieres correr WikiCraft en tu propio "servidor" local:
 ```bash
 index.html            # Inicio
 views/                # Páginas (bloques, mobs, crafteos, alquimia, comunidad, jugar) y vistas JS
-controllers/          # NewsController (carga y estados) y UIController (botón de subir)
+controllers/          # NewsController (carga y estados), CarouselController (carrusel de portada) y UIController (botón de subir)
 models/               # NewsModel (Reddit) y safeUrl (validador de URLs https)
-css/styles.css        # Sistema de diseño Minecraft
+css/styles.css        # Sistema de diseño Minecraft (cabecera, pie, componentes)
+css/home.css          # Estilos exclusivos de la portada (carrusel, tarjetas, banda, selector)
 assets/dist/          # Bootstrap local
 images/textures/      # Texturas pixeladas de 16x16 usadas por el CSS
+images/art/           # Ilustraciones generadas (tarjetas, banners, diapositivas)
 tests/                # Pruebas con node:test
-scripts/              # Verificador estático del sitio
+scripts/              # Verificador estático del sitio y generate-art.py (regenera images/art/, requiere Pillow)
 AUDITORIA_Y_MEJORAS.md # Informe de auditoría y mejoras
 ```
 
