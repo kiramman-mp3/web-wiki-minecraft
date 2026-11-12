@@ -476,7 +476,7 @@ main {
 
 .btn-minecraft:hover {
   color: #fff;
-  background: #4a8f26;
+  background: #35691a;
   transform: translateY(-2px);
 }
 
@@ -664,6 +664,14 @@ footer .container {
 
 /* 11. Responsive ----------------------------------------------------------- */
 @media (max-width: 991.98px) {
+  /* Solid backing so link text never fights the plank texture. */
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+    background: rgba(20, 12, 6, 0.92);
+    border: var(--pixel) solid #1a0f08;
+  }
+
   .navbar-nav {
     padding: 0.5rem 0;
   }
@@ -705,6 +713,16 @@ footer .container {
 
   .news-card-img {
     height: 170px;
+  }
+
+  .table th {
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.4rem;
   }
 
   .iframe-container iframe {
