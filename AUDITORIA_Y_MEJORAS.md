@@ -92,6 +92,16 @@ Commits (todos en `develop`, sin trailer de coautoría según `CLAUDE.md`):
 
 Fondo de piedra pixelada, barra superior de tablones oscuros, hero con borde de césped, pie de tierra y césped, tablas e inventarios con bisel. Texto largo en fuente del sistema; fuente pixelada solo en títulos y botones. Se quitó la animación flotante del título y el texto justificado.
 
+**Rediseño inspirado en minecraft.net/es-es** (rama `feature/minecraftnet-layout`). Solo se tomó la estructura, no imágenes ni textos de Mojang:
+
+- Cabecera con menús desplegables (abren al pasar el cursor desde 992 px y por clic en móvil) y botón «Jugar ahora».
+- Portada: carrusel con miniaturas y botón de pausa accesible, tarjetas de sección, banda «Empieza por aquí», carrusel horizontal de bloques destacados, selector por pestañas y mosaico de noticias.
+- Pie con tres columnas, franja de césped y aviso de proyecto no afiliado a Mojang.
+- Páginas internas con banner propio por sección.
+- Arte generado con `scripts/generate-art.py` en `images/art/`; estilos de portada en `css/home.css`.
+
+Verificación: `npm run verify` pasa (7 páginas, 9 pruebas) y no hay desbordamiento horizontal en las 7 páginas a 375, 430, 768, 1366 y 1920 px. La consola solo muestra el 403 conocido del proxy de Reddit.
+
 ## 9. Design System Minecraft
 
 Definido en `css/styles.css` (tokens en `:root`):
