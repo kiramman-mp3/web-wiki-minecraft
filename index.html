@@ -4,68 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="WikiCraft - La enciclopedia definitiva de Minecraft. Descubre bloques, mobs, crafteos y más para sobrevivir y construir en tu mundo.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://corsproxy.io; frame-src https://minecraftforfreex.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="WikiCraft - La enciclopedia definitiva de Minecraft. Descubre bloques, mobs, crafteos y más para sobrevivir y construir en tu mundo.">
   <meta name="keywords" content="Minecraft, Wiki, Bloques, Mobs, Crafteos, Alquimia, Guía de Minecraft">
   <meta name="author" content="WikiCraft Team">
+  <meta name="theme-color" content="#1c1c1f">
   <title>WikiCraft | Inicio - La Guía Definitiva de Minecraft</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preload" href="css/minecraft_fot_esp.ttf" as="font" type="font/ttf" crossorigin>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body class="minecraft-theme">
-  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
     <div class="container">
-      <a class="minecraft-logo" href="#"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand minecraft-logo" href="index.html" aria-label="WikiCraft, ir al inicio"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/bloques.html">Bloques</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/mobs.html">Mobs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/crafteos.html">Crafteos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/alquimia.html">Alquimia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/comunidad.html">Comunidad</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="views/jugar.html">Jugar</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/bloques.html">Bloques</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/mobs.html">Mobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/crafteos.html">Crafteos</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/alquimia.html">Alquimia</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/comunidad.html">Comunidad</a></li>
+          <li class="nav-item"><a class="nav-link" href="views/jugar.html">Jugar</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
 
-  <section class="hero-section text-center text-white reveal">
+  <header class="hero-section text-center text-white">
     <div class="container py-5">
-      <div class="floating">
+      <div>
         <h1 class="display-3 mb-3">¡Bienvenido a WikiCraft!</h1>
-        <p class="lead mx-auto" style="max-width: 800px;">
+        <p class="hero-lead">
           Tu portal definitivo hacia el reino de los bloques. Domina el arte de la supervivencia, la construcción y el combate con nuestra guía experta.
         </p>
       </div>
       <div class="mt-5">
-        <a href="#contenidos" class="btn btn-minecraft btn-lg">Explorar Ahora</a>
+        <a href="#contenidos" class="btn-minecraft btn-minecraft--lg">Explorar Ahora</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <div id="contenidos" class="container reveal">
-    <div class="glass-panel">
+  <main id="contenido">
+
+  <div id="contenidos" class="container mc-section reveal">
+    <div class="mc-panel">
       <div class="row g-5 justify-content-center">
         <!-- Bloques (Featured) -->
         <div class="col-lg-8">
@@ -74,7 +67,7 @@
               <div>
                 <h2 class="card-title mb-3">Bloques</h2>
                 <p class="card-text">Descubre los materiales esenciales para la construcción, desde bloques básicos hasta los más poderosos. Aprende a utilizarlos en tus proyectos y crea estructuras épicas.</p>
-                <a href="views/bloques.html" class="btn btn-minecraft mt-3">Ver Bloques</a>
+                <a href="views/bloques.html" class="btn-minecraft mt-3">Ver Bloques</a>
               </div>
             </div>
           </div>
@@ -87,7 +80,7 @@
               <p class="card-text">Conoce las criaturas que habitan el mundo de Minecraft. Ya sea para enfrentarlas o para
                 aprovechar sus recursos, cada mob tiene algo que ofrecerte.</p>
               <div class="mt-auto">
-                <a href="views/mobs.html" class="btn btn-minecraft w-100">Ver Mobs</a>
+                <a href="views/mobs.html" class="btn-minecraft w-100">Ver Mobs</a>
               </div>
             </div>
           </div>
@@ -100,7 +93,7 @@
               <p class="card-text">Aprende las recetas para crear herramientas y armas esenciales. ¡El crafteo es clave
                 para avanzar y sobrevivir en el mundo de Minecraft!</p>
               <div class="mt-auto">
-                <a href="views/crafteos.html" class="btn btn-minecraft w-100">Ver Crafteos</a>
+                <a href="views/crafteos.html" class="btn-minecraft w-100">Ver Crafteos</a>
               </div>
             </div>
           </div>
@@ -113,7 +106,7 @@
               <p class="card-text">Descubre las pociones mágicas y sus efectos. Aprende a crear pociones que te darán
                 ventajas en combate o exploración.</p>
               <div class="mt-auto">
-                <a href="views/alquimia.html" class="btn btn-minecraft w-100">Ver Pociones</a>
+                <a href="views/alquimia.html" class="btn-minecraft w-100">Ver Pociones</a>
               </div>
             </div>
           </div>
@@ -126,7 +119,7 @@
               <p class="card-text">Conoce las historias y aventuras creadas por otros jugadores. ¡Explora mundos y
                 relatos inspiradores de la comunidad!</p>
               <div class="mt-auto">
-                <a href="views/comunidad.html" class="btn btn-minecraft w-100">Ver Historias</a>
+                <a href="views/comunidad.html" class="btn-minecraft w-100">Ver Historias</a>
               </div>
             </div>
           </div>
@@ -135,27 +128,31 @@
     </div>
   </div>
 
-  <section class="minecraft-section reveal">
+  <section class="mc-section reveal" aria-labelledby="noticias-titulo">
     <div class="container">
-      <div class="glass-panel text-center">
+      <div class="mc-panel text-center">
         <div class="mb-5">
-          <h2 class="text-center">Noticias de la Comunidad</h2>
-          <p class="text-white text-center">Conoce las noticias de la comunidad de Minecraft en Reddit</p>
+          <h2 id="noticias-titulo" class="text-center">Noticias de la Comunidad</h2>
+          <p class="text-center">Conoce las noticias de la comunidad de Minecraft en Reddit</p>
         </div>
-        <div id="minecraft-news" class="row g-4 justify-content-center"></div>
+        <div id="minecraft-news" class="row g-4 justify-content-center" aria-live="polite" aria-busy="true">
+          <noscript>
+            <div class="col-12"><p class="text-center">Activa JavaScript para ver las noticias o visita <a href="https://www.reddit.com/r/minecraft/" target="_blank" rel="noopener noreferrer">r/minecraft</a>.</p></div>
+          </noscript>
+        </div>
       </div>
     </div>
   </section>
+  </main>
 
-  <footer class="py-4 text-center">
-    <div class="container">
+  <footer>
+    <div class="container text-center">
       <small>© 2025 Grupo más lindo de la FISEI.</small>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="main.js"></script>
-
 </body>
 
 </html>
