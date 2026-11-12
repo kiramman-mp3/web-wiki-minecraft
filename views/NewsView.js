@@ -1,3 +1,5 @@
+import { httpsUrl } from '../models/safeUrl.js';
+
 const DEFAULT_IMAGE = new URL('../images/default-new.jpg', import.meta.url).href;
 
 function element(tag, className, text) {
@@ -7,21 +9,12 @@ function element(tag, className, text) {
   return node;
 }
 
-function safeHttpsUrl(value, fallback) {
-  try {
-    const url = new URL(value);
-    return url.protocol === 'https:' ? url.href : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
 function createCard(article, { badge, linkLabel }) {
   const col = element('div', 'col-md-6 col-lg-4');
   const card = element('article', 'news-card h-100');
 
   const img = element('img', 'news-card-img');
-  img.src = safeHttpsUrl(article.urlToImage, DEFAULT_IMAGE);
+  img.src = httpsUrl(article.urlToImage, DEFAULT_IMAGE);
   img.alt = '';
   img.loading = 'lazy';
   img.decoding = 'async';
@@ -33,7 +26,7 @@ function createCard(article, { badge, linkLabel }) {
   if (article.date) meta.appendChild(element('time', '', article.date));
 
   const link = element('a', 'btn-minecraft mt-auto text-center', linkLabel);
-  link.href = safeHttpsUrl(article.url, '#');
+  link.href = httpsUrl(article.url, '#');
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
 
