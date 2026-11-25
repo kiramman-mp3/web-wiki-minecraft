@@ -1,5 +1,7 @@
 # 💎 WikiCraft — La Enciclopedia Definitiva de Minecraft
 
+> **Proyecto temprano (2025).** Lo mantengo publicado como parte de mi recorrido; está pendiente de refactorización. Mis proyectos actuales están en [madebyjohan.xyz](https://madebyjohan.xyz/proyectos).
+
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES%20modules-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-CSS3-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
